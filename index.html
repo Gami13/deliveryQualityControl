@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		fieldset {
+			margin: 2rem;
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		label {
+			margin-right: 2rem;
+			margin-bottom: 1rem;
+		}
+	</style>
+</head>
+
+<!-- 	[code] [varchar](max) NOT NULL,
+		[name] [varchar](max) NOT NULL, 
+	[property] [varchar](max) NOT NULL,
+	[propertySymbol] [varchar](3) NOT NULL,
+	[propertySecond] [varchar](max) NULL,
+	[propertySecondSymbol] [varchar](3)  NULL,
+	[propertiesOperation] [varchar](1) NULL,
+	[propertyUnit] [varchar](10) NOT NULL,
+	[rangeFrom] [decimal] NOT NULL,
+	[rangeTo] [decimal] NOT NULL,
+	[rangeUnit] [varchar](10) NOT NULL,
+	[rangeProperty] [varchar](max) NOT NULL,
+	[rangePropertySymbol] [varchar](3) NOT NULL,
+	[toleranceStart] [decimal] NULL,
+	[toleranceEnd] [decimal] NULL,
+	[toleranceUnit] [varchar](10) NOT NULL,
+	[toleranceProperty] [varchar](max) NULL,
+	[tolerancePropertySymbol] [varchar](3) NULL,
+	[illustration] [varchar](max) NULL,
+	[toleranceStartAgreement] [decimal] NULL,
+	[toleranceEndAgreement] [decimal] NULL,
+-->
+
+<body>
+	<form>
+		<fieldset class="ogolne">
+			<legend>Ogólne</legend>
+			<label for="code">Code
+				<input type="text" id="code">
+			</label>
+			<label for="name">Name
+				<input type="text" id="name">
+			</label>
+
+		</fieldset>
+		<fieldset class="wlasciwosci">
+			<legend>Właściwość nr.1</legend>
+			<label for="property">Property
+				<input type="text" id="property">
+			</label>
+			<label for="propertySymbol">Property Symbol
+				<input type="text" id="propertySymbol">
+			</label>
+			<label for="propertyUnit">Property Unit
+				<select id="propertyUnit">
+					<option value="mm">mm</option>
+					<option value="%">%</option>
+				</select>
+			</label>
+			<label for="isSecondProperty">Is Second Property
+				<input type="checkbox" id="isSecondProperty">
+			</label>
+			<fieldset id="secondProperties">
+				<legend>Właściwości drugie</legend>
+				<label for="propertySecond">Property Second
+					<input type="text" id="propertySecond">
+				</label>
+				<label for="propertySecondSymbol">Property Second Symbol
+					<input type="text" id="propertySecondSymbol">
+				</label>
+				<label for="propertiesOperation">Properties Operation
+					<select id="propertiesOperation">
+						<option value="A">Dodaj</option>
+						<option value="S">Odejmij</option>
+						<option value="M">Pomnóż</option>
+						<option value="D">Podziel</option>
+						<option value="">Osobne</option>
+					</select>
+				</label>
+			</fieldset>
+			<fieldset class="zakresy">
+				<legend>Zakresy</legend>
+				<label for="rangeUnit">Range Unit
+					<select id="rangeUnit">
+						<option value="mm">mm</option>
+						<option value="%">%</option>
+					</select>
+				</label>
+				<label for="rangeProperty">Range Property
+					<input type="text" id="rangeProperty">
+				</label>
+				<label for="rangePropertySymbol">Range Property Symbol
+					<input type="text" id="rangePropertySymbol">
+				</label>
+				<label for="toleranceProperty">Tolerance Property
+					<input type="text" id="toleranceProperty">
+				</label>
+				<label for="tolerancePropertySymbol">Tolerance Property Symbol
+					<input type="text" id="tolerancePropertySymbol">
+				</label>
+				<button type="button" id="addRange">Dodaj zakres</button>
+				<fieldset>
+					<legend>Zakres nr.1</legend>
+					<label for="rangeFrom">Range From
+						<input type="text" id="rangeFrom">
+					</label>
+					<label for="rangeTo">Range To
+						<input type="text" id="rangeTo">
+					</label>
+
+
+					<label for="toleranceStart">Tolerance Start
+						<input type="text" id="toleranceStart">
+					</label>
+					<label for="toleranceEnd">Tolerance End
+						<input type="text" id="toleranceEnd">
+					</label>
+					<label for="toleranceUnit">Tolerance Unit
+						<select id="toleranceUnit">
+							<option value="mm">mm</option>
+							<option value="%">%</option>
+						</select>
+					</label>
+					<label for="canAgreeTolerance">Can Agree Tolerance
+						<input type="checkbox" id="canAgreeTolerance">
+					</label>
+					<div id="agreementTolerance">
+						<label for="toleranceStartAgreement">Tolerance Start Agreement
+							<input type="text" id="toleranceStartAgreement">
+						</label>
+						<label for="toleranceEndAgreement">Tolerance End Agreement
+							<input type="text" id="toleranceEndAgreement">
+						</label>
+					</div>
+
+				</fieldset>
+
+
+			</fieldset>
+		</fieldset>
+
+
+		<button type="button" id="submit">Submit</button>
+	</form>
+
+
+	<script>
+
+
+		let isSecondProperty = document.querySelectorAll('#isSecondProperty');
+		let secondProperties = document.querySelectorAll('#secondProperties');
+		let addRange = document.querySelectorAll('#addRange');
+
+		let code = document.querySelector('#code');
+		let name = document.querySelector('#name');
+		let property = document.querySelectorAll('#property');
+		let propertySymbol = document.querySelectorAll('#propertySymbol');
+		let propertyUnit = document.querySelectorAll('#propertyUnit');
+		let propertySecond = document.querySelectorAll('#propertySecond');
+		let propertySecondSymbol = document.querySelectorAll('#propertySecondSymbol');
+		let propertiesOperation = document.querySelectorAll('#propertiesOperation');
+		let rangeFrom = document.querySelectorAll('#rangeFrom');
+		let rangeTo = document.querySelectorAll('#rangeTo');
+		let rangeUnit = document.querySelectorAll('#rangeUnit');
+		let rangeProperty = document.querySelectorAll('#rangeProperty');
+		let rangePropertySymbol = document.querySelectorAll('#rangePropertySymbol');
+		let toleranceStart = document.querySelectorAll('#toleranceStart');
+		let toleranceEnd = document.querySelectorAll('#toleranceEnd');
+		let toleranceUnit = document.querySelectorAll('#toleranceUnit');
+		let toleranceProperty = document.querySelectorAll('#toleranceProperty');
+		let tolerancePropertySymbol = document.querySelectorAll('#tolerancePropertySymbol');
+		let canAgreeTolerance = document.querySelectorAll('#canAgreeTolerance');
+		let toleranceStartAgreement = document.querySelectorAll('#toleranceStartAgreement');
+		let toleranceEndAgreement = document.querySelectorAll('#toleranceEndAgreement');
+		let agreementTolerance = document.querySelectorAll('#agreementTolerance');
+		let rangeId = 1;
+		let submit = document.querySelector('#submit');
+
+		function recaptureElems() {
+			isSecondProperty = document.querySelectorAll('#isSecondProperty');
+			secondProperties = document.querySelectorAll('#secondProperties');
+			addRange = document.querySelectorAll('#addRange');
+
+			code = document.querySelector('#code');
+			name = document.querySelector('#name');
+			property = document.querySelectorAll('#property');
+			propertySymbol = document.querySelectorAll('#propertySymbol');
+			propertyUnit = document.querySelectorAll('#propertyUnit');
+			propertySecond = document.querySelectorAll('#propertySecond');
+			propertySecondSymbol = document.querySelectorAll('#propertySecondSymbol');
+			propertiesOperation = document.querySelectorAll('#propertiesOperation');
+			rangeFrom = document.querySelectorAll('#rangeFrom');
+			rangeTo = document.querySelectorAll('#rangeTo');
+			rangeUnit = document.querySelectorAll('#rangeUnit');
+			rangeProperty = document.querySelectorAll('#rangeProperty');
+			rangePropertySymbol = document.querySelectorAll('#rangePropertySymbol');
+			toleranceStart = document.querySelectorAll('#toleranceStart');
+			toleranceEnd = document.querySelectorAll('#toleranceEnd');
+			toleranceUnit = document.querySelectorAll('#toleranceUnit');
+			toleranceProperty = document.querySelectorAll('#toleranceProperty');
+			tolerancePropertySymbol = document.querySelectorAll('#tolerancePropertySymbol');
+			canAgreeTolerance = document.querySelectorAll('#canAgreeTolerance');
+			toleranceStartAgreement = document.querySelectorAll('#toleranceStartAgreement');
+			toleranceEndAgreement = document.querySelectorAll('#toleranceEndAgreement');
+			agreementTolerance = document.querySelectorAll('#agreementTolerance');
+		}
+
+
+
+
+		function render() {
+			recaptureElems();
+
+
+
+			secondProperties.forEach((element, index) => {
+				element.style.display = 'none';
+				isSecondProperty[index].addEventListener('change', () => {
+					if (isSecondProperty[index].checked) {
+						element.style.display = 'block';
+					} else {
+						element.style.display = 'none';
+					}
+				});
+			});
+			agreementTolerance.forEach((element, index) => {
+				element.style.display = 'none';
+				canAgreeTolerance[index].addEventListener('change', () => {
+					if (canAgreeTolerance[index].checked) {
+						element.style.display = 'block';
+					} else {
+						element.style.display = 'none';
+					}
+				});
+			});
+			addRange.forEach((element, index) => {
+
+				element.addEventListener('click', () => {
+
+					let newRange = document.createElement('fieldset');
+					newRange.innerHTML = `
+					<legend>Zakres nr.${++rangeId}</legend>
+					<label for="rangeFrom">Range From
+						<input type="text" id="rangeFrom">
+					</label>
+					<label for="rangeTo">Range To
+						<input type="text" id="rangeTo">
+					</label>
+
+
+					<label for="toleranceStart">Tolerance Start
+						<input type="text" id="toleranceStart">
+					</label>
+					<label for="toleranceEnd">Tolerance End
+						<input type="text" id="toleranceEnd">
+					</label>
+					<label for="toleranceUnit">Tolerance Unit
+						<select id="toleranceUnit">
+							<option value="mm">mm</option>
+							<option value="%">%</option>
+						</select>
+					</label>
+					<label for="canAgreeTolerance${rangeId}">Can Agree Tolerance
+						<input type="checkbox" id="canAgreeTolerance">
+					</label>
+					<div id="agreementTolerance">
+						<label for="toleranceStartAgreement">Tolerance Start Agreement
+							<input type="text" id="toleranceStartAgreement">
+						</label>
+						<label for="toleranceEndAgreement">Tolerance End Agreement
+							<input type="text" id="toleranceEndAgreement">
+						</label>
+					</div>
+					
+					`
+					newRange.childNodes.forEach((element, index) => {
+						if (element.tagName == 'LABEL') {
+
+
+							if (element.childNodes[1].type == `checkbox`) {
+
+
+								element.childNodes[1].addEventListener('change', () => {
+									if (element.childNodes[1].checked) {
+										element.parentNode.children[7].style.display = 'block';
+									} else {
+										element.parentNode.children[7].style.display = 'none';
+									}
+								});
+
+								element.parentNode.children[7].style.display = 'none';
+
+							}
+						}
+					});
+					element.parentNode.appendChild(newRange);
+
+
+
+				})
+
+
+			}
+
+			);
+
+		}
+		render();
+
+
+
+	</script>
+</body>
+
+
+</html>
