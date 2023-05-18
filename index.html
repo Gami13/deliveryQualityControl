@@ -425,7 +425,10 @@
 		})
 		render();
 		submit.addEventListener("click", () => {
-			let data = [];
+			let data = {}; data.code = code.value;
+			data.name = name.value;
+			data.properties = []
+
 			let properties = document.querySelectorAll('.wlasciwosci');
 			properties.forEach((element, index) => {
 
@@ -442,18 +445,20 @@
 				property.isSecondProperty = element.children[4].children[0].checked;
 
 				if (property.isSecondProperty) {
-					property.propertySecond = element.children[2].children[0].children[0].value;
-					property.propertySecondSymbol = element.children[2].children[0].children[1].value;
-					property.propertiesOperation = element.children[2].children[0].children[2].value;
+					console.log(element.children[5].children[1].children[0]);
+					property.propertySecond = element.children[5].children[1].children[0].value;
+					property.propertySecondSymbol = element.children[5].children[2].children[0].value;
+					property.propertiesOperation = element.children[5].children[3].children[0].value;
 				}
 				property.ranges = [];
 				let ranges = element.children[6].children; //first range is 7th child
 				let rangeObjectPre = {};
-				rangeObjectPre.rangeUnit = element.children[6].children[2].value;
-				rangeObjectPre.rangeProperty = element.children[6].children[3].value;
-				rangeObjectPre.rangePropertySymbol = element.children[6].children[4].value;
-				rangeObjectPre.toleranceProperty = element.children[6].children[5].value;
-				rangeObjectPre.tolerancePropertySymbol = element.children[6].children[6].value;
+				console.log(element.children[6].children[1].children[0].value)
+				rangeObjectPre.rangeUnit = element.children[6].children[1].children[0].value;
+				rangeObjectPre.rangeProperty = element.children[6].children[2].children[0].value;
+				rangeObjectPre.rangePropertySymbol = element.children[6].children[3].children[0].value;
+				rangeObjectPre.toleranceProperty = element.children[6].children[4].children[0].value;
+				rangeObjectPre.tolerancePropertySymbol = element.children[6].children[5].children[0].value
 
 				for (x in ranges) {
 					if (ranges[x].tagName != "FIELDSET") {
@@ -467,8 +472,9 @@
 						rangeObject.toleranceUnit = range.children[2].value;
 						rangeObject.canAgreeTolerance = range.children[6].children[0].checked;
 						if (rangeObject.canAgreeTolerance) {
-							rangeObject.toleranceStartAgreement = range.children[7].children[0].value;
-							rangeObject.toleranceEndAgreement = range.children[8].children[0].value;
+							console.log(range.children[7].children[1])
+							rangeObject.toleranceStartAgreement = range.children[7].children[0].children[0].value;
+							rangeObject.toleranceEndAgreement = range.children[7].children[1].children[0].value;
 						}
 						rangeObject.rangeFrom = range.children[1].children[0].value;
 						rangeObject.rangeTo = range.children[2].children[0].value;
@@ -481,10 +487,13 @@
 
 
 
-				data.push(property);
+				data.properties.push(property);
+
 
 			});
+
 			console.log(data);
+			console.log(JSON.stringify(data));
 
 		})
 
