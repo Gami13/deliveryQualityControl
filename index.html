@@ -54,6 +54,9 @@
 			<label for="name">Name
 				<input type="text" id="name">
 			</label>
+			<button type="button" id="addProperty">Dodaj Właściwość</button>
+			<button type="button" id="submit">Submit</button>
+
 
 		</fieldset>
 		<fieldset class="wlasciwosci">
@@ -70,7 +73,7 @@
 					<option value="%">%</option>
 				</select>
 			</label>
-			<label for="isSecondProperty">Is Second Property
+			<label for="">Is Second Property
 				<input type="checkbox" id="isSecondProperty">
 			</label>
 			<fieldset id="secondProperties">
@@ -153,7 +156,6 @@
 		</fieldset>
 
 
-		<button type="button" id="submit">Submit</button>
 	</form>
 
 
@@ -218,7 +220,7 @@
 			agreementTolerance = document.querySelectorAll('#agreementTolerance');
 		}
 
-
+		let propertyAmount = 1;
 
 
 		function render() {
@@ -318,8 +320,173 @@
 			);
 
 		}
-		render();
+		const addProperty = document.querySelector('#addProperty');
+		addProperty.addEventListener("click", () => {
+			let newProperty = document.createElement('fieldset');
+			newProperty.classList.add('wlasciwosci');
+			newProperty.innerHTML = `
 
+			<legend>Właściwość nr.${++propertyAmount}</legend>
+			<label for="property">Property
+				<input type="text" id="property">
+			</label>
+			<label for="propertySymbol">Property Symbol
+				<input type="text" id="propertySymbol">
+			</label>
+			<label for="propertyUnit">Property Unit
+				<select id="propertyUnit">
+					<option value="mm">mm</option>
+					<option value="%">%</option>
+				</select>
+			</label>
+			<label for="">Is Second Property
+				<input type="checkbox" id="isSecondProperty">
+			</label>
+			<fieldset id="secondProperties">
+				<legend>Właściwości drugie</legend>
+				<label for="propertySecond">Property Second
+					<input type="text" id="propertySecond">
+				</label>
+				<label for="propertySecondSymbol">Property Second Symbol
+					<input type="text" id="propertySecondSymbol">
+				</label>
+				<label for="propertiesOperation">Properties Operation
+					<select id="propertiesOperation">
+						<option value="A">Dodaj</option>
+						<option value="S">Odejmij</option>
+						<option value="M">Pomnóż</option>
+						<option value="D">Podziel</option>
+						<option value="">Osobne</option>
+					</select>
+				</label>
+			</fieldset>
+			<fieldset class="zakresy">
+				<legend>Zakresy</legend>
+				<label for="rangeUnit">Range Unit
+					<select id="rangeUnit">
+						<option value="mm">mm</option>
+						<option value="%">%</option>
+					</select>
+				</label>
+				<label for="rangeProperty">Range Property
+					<input type="text" id="rangeProperty">
+				</label>
+				<label for="rangePropertySymbol">Range Property Symbol
+					<input type="text" id="rangePropertySymbol">
+				</label>
+				<label for="toleranceProperty">Tolerance Property
+					<input type="text" id="toleranceProperty">
+				</label>
+				<label for="tolerancePropertySymbol">Tolerance Property Symbol
+					<input type="text" id="tolerancePropertySymbol">
+				</label>
+				<button type="button" id="addRange">Dodaj zakres</button>
+				<fieldset>
+					<legend>Zakres nr.1</legend>
+					<label for="rangeFrom">Range From
+						<input type="text" id="rangeFrom">
+					</label>
+					<label for="rangeTo">Range To
+						<input type="text" id="rangeTo">
+					</label>
+
+
+					<label for="toleranceStart">Tolerance Start
+						<input type="text" id="toleranceStart">
+					</label>
+					<label for="toleranceEnd">Tolerance End
+						<input type="text" id="toleranceEnd">
+					</label>
+					<label for="toleranceUnit">Tolerance Unit
+						<select id="toleranceUnit">
+							<option value="mm">mm</option>
+							<option value="%">%</option>
+						</select>
+					</label>
+					<label for="">Can Agree Tolerance
+						<input type="checkbox" id="canAgreeTolerance">
+					</label>
+					<div id="agreementTolerance">
+						<label >Tolerance Start Agreement
+							<input type="text" id="toleranceStartAgreement">
+						</label>
+						<label for="toleranceEndAgreement">Tolerance End Agreement
+							<input type="text" id="toleranceEndAgreement">
+						</label>
+					</div>
+
+				</fieldset>
+
+
+			`;
+
+			document.body.appendChild(newProperty);
+			render();
+		})
+		render();
+		submit.addEventListener("click", () => {
+			let data = [];
+			let properties = document.querySelectorAll('.wlasciwosci');
+			properties.forEach((element, index) => {
+
+
+
+				let property = {};
+				property.property = element.children[1].children[0].value;
+
+				property.propertySymbol = element.children[2].children[0].value;
+				property.propertyUnit = element.children[3].children[0].value;
+
+
+
+				property.isSecondProperty = element.children[4].children[0].checked;
+
+				if (property.isSecondProperty) {
+					property.propertySecond = element.children[2].children[0].children[0].value;
+					property.propertySecondSymbol = element.children[2].children[0].children[1].value;
+					property.propertiesOperation = element.children[2].children[0].children[2].value;
+				}
+				property.ranges = [];
+				let ranges = element.children[6].children; //first range is 7th child
+				let rangeObjectPre = {};
+				rangeObjectPre.rangeUnit = element.children[6].children[2].value;
+				rangeObjectPre.rangeProperty = element.children[6].children[3].value;
+				rangeObjectPre.rangePropertySymbol = element.children[6].children[4].value;
+				rangeObjectPre.toleranceProperty = element.children[6].children[5].value;
+				rangeObjectPre.tolerancePropertySymbol = element.children[6].children[6].value;
+
+				for (x in ranges) {
+					if (ranges[x].tagName != "FIELDSET") {
+
+					}
+					else {
+						let range = ranges[x];
+
+						let rangeObject = structuredClone(rangeObjectPre);
+
+						rangeObject.toleranceUnit = range.children[2].value;
+						rangeObject.canAgreeTolerance = range.children[6].children[0].checked;
+						if (rangeObject.canAgreeTolerance) {
+							rangeObject.toleranceStartAgreement = range.children[7].children[0].value;
+							rangeObject.toleranceEndAgreement = range.children[8].children[0].value;
+						}
+						rangeObject.rangeFrom = range.children[1].children[0].value;
+						rangeObject.rangeTo = range.children[2].children[0].value;
+						rangeObject.toleranceStart = range.children[3].children[0].value;
+						rangeObject.toleranceEnd = range.children[4].children[0].value;
+						property.ranges.push(rangeObject);
+					}
+				}
+
+
+
+
+				data.push(property);
+
+			});
+			console.log(data);
+
+		})
 
 
 	</script>
