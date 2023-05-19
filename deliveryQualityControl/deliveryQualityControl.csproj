@@ -55,4 +55,22 @@
 		<PackageReference Include="Npgsql" Version="7.0.4" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Element.xaml.cs">
+	    <DependentUpon>Element.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Parameter.xaml.cs">
+	    <DependentUpon>Parameter.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Element.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Parameter.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
