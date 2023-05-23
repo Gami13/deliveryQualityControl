@@ -1,25 +1,27 @@
-﻿namespace deliveryQualityControl;
+﻿using System.Diagnostics;
+
+namespace deliveryQualityControl;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
 
 	public MainPage()
 	{
 		InitializeComponent();
+		
+		materialList.ItemsSource = Database.getListOfMaterials();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+async     void onTapped(object sender, EventArgs e )
+    {
+		var code= (((ViewCell)sender).BindingContext as ElementRow).code;
+		
+		
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+        await Shell.Current.GoToAsync($"//Element?code={code}");
 
-		Database.test();
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+
+
+    }
 }
 

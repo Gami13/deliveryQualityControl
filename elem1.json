@@ -1,360 +1,279 @@
 {
-  "code": "PN-EN 10024",
-  "name": "DWUTEOWNIKI STALOWE Z POCHYLONĄ WEWNĘTRZNĄ POWIERZCHNIĄ STOPEK WALCOWANE NA GORĄCO",
+  "code": "PN-EN 10056-2",
+  "name": "kątowniki równoramienne i nierównoramenne z stali konstrukcyjnej",
   "properties": [
     {
-      "property": "prostość",
-      "propertySymbol": "qyy",
-      "propertyUnit": "mm",
-      "isSecondProperty": true,
-      "propertySecond": "prostość",
-      "propertySecondSymbol": "qxx",
-      "propertiesOperation": "",
-      "ranges": [
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "wysokość",
-          "rangePropertySymbol": "h",
-          "toleranceProperty": "długość",
-          "tolerancePropertySymbol": "L",
-          "canAgreeTolerance": false,
-          "rangeFrom": "80",
-          "rangeTo": "180",
-          "toleranceStart": "0",
-          "toleranceEnd": "0.3"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "wysokość",
-          "rangePropertySymbol": "h",
-          "toleranceProperty": "długość",
-          "tolerancePropertySymbol": "L",
-          "canAgreeTolerance": false,
-          "rangeFrom": "180",
-          "rangeTo": "360",
-          "toleranceStart": "0",
-          "toleranceEnd": "0.15"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "wysokość",
-          "rangePropertySymbol": "h",
-          "toleranceProperty": "długość",
-          "tolerancePropertySymbol": "L",
-          "canAgreeTolerance": false,
-          "rangeFrom": "360",
-          "rangeTo": "NULL",
-          "toleranceStart": "0",
-          "toleranceEnd": "0.1"
-        }
-      ]
-    },
-    {
-      "property": "wysokość",
-      "propertySymbol": "h",
-      "propertyUnit": "mm",
-      "isSecondProperty": false,
-      "ranges": [
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "wysokość",
-          "rangePropertySymbol": "h",
-          "toleranceProperty": "wysokość",
-          "tolerancePropertySymbol": "h",
-          "canAgreeTolerance": false,
-          "rangeFrom": "0",
-          "rangeTo": "200",
-          "toleranceStart": "2",
-          "toleranceEnd": "2"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "wysokość",
-          "rangePropertySymbol": "h",
-          "toleranceProperty": "wysokość",
-          "tolerancePropertySymbol": "h",
-          "canAgreeTolerance": false,
-          "rangeFrom": "200",
-          "rangeTo": "400",
-          "toleranceStart": "3",
-          "toleranceEnd": "3"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "wysokość",
-          "rangePropertySymbol": "h",
-          "toleranceProperty": "wysokość",
-          "tolerancePropertySymbol": "h",
-          "canAgreeTolerance": false,
-          "rangeFrom": "400",
-          "rangeTo": "NULL",
-          "toleranceStart": "4",
-          "toleranceEnd": "4"
-        }
-      ]
-    },
-    {
-      "property": "szerokość stopki",
-      "propertySymbol": "b",
-      "propertyUnit": "mm",
-      "isSecondProperty": false,
-      "ranges": [
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "szerokość stopki",
-          "rangePropertySymbol": "b",
-          "toleranceProperty": "szerokość stopki",
-          "tolerancePropertySymbol": "b",
-          "canAgreeTolerance": false,
-          "rangeFrom": "0",
-          "rangeTo": "75",
-          "toleranceStart": "1.5",
-          "toleranceEnd": "1.5"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "szerokość stopki",
-          "rangePropertySymbol": "b",
-          "toleranceProperty": "szerokość stopki",
-          "tolerancePropertySymbol": "b",
-          "canAgreeTolerance": false,
-          "rangeFrom": "75",
-          "rangeTo": "100",
-          "toleranceStart": "2.0",
-          "toleranceEnd": "2.0"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "szerokość stopki",
-          "rangePropertySymbol": "b",
-          "toleranceProperty": "szerokość stopki",
-          "tolerancePropertySymbol": "b",
-          "canAgreeTolerance": false,
-          "rangeFrom": "100",
-          "rangeTo": "125",
-          "toleranceStart": "2.5",
-          "toleranceEnd": "2.5"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "szerokość stopki",
-          "rangePropertySymbol": "b",
-          "toleranceProperty": "szerokość stopki",
-          "tolerancePropertySymbol": "b",
-          "canAgreeTolerance": false,
-          "rangeFrom": "125",
-          "rangeTo": "NULL",
-          "toleranceStart": "3.0",
-          "toleranceEnd": "3.0"
-        }
-      ]
-    },
-    {
-      "property": "grubość stopki",
-      "propertySymbol": "t",
-      "propertyUnit": "mm",
-      "isSecondProperty": false,
-      "ranges": [
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "grubość stopki",
-          "rangePropertySymbol": "t",
-          "toleranceProperty": "grubość stopki",
-          "tolerancePropertySymbol": "t",
-          "canAgreeTolerance": false,
-          "rangeFrom": "0",
-          "rangeTo": "7",
-          "toleranceStart": "0.5",
-          "toleranceEnd": "1.5"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "grubość stopki",
-          "rangePropertySymbol": "t",
-          "toleranceProperty": "grubość stopki",
-          "tolerancePropertySymbol": "t",
-          "canAgreeTolerance": false,
-          "rangeFrom": "7",
-          "rangeTo": "10",
-          "toleranceStart": "1",
-          "toleranceEnd": "2"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "grubość stopki",
-          "rangePropertySymbol": "t",
-          "toleranceProperty": "grubość stopki",
-          "tolerancePropertySymbol": "t",
-          "canAgreeTolerance": false,
-          "rangeFrom": "10",
-          "rangeTo": "20",
-          "toleranceStart": "1.5",
-          "toleranceEnd": "2.5"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "grubość stopki",
-          "rangePropertySymbol": "t",
-          "toleranceProperty": "grubość stopki",
-          "tolerancePropertySymbol": "t",
-          "canAgreeTolerance": false,
-          "rangeFrom": "20",
-          "rangeTo": "NULL",
-          "toleranceStart": "2",
-          "toleranceEnd": "2.5"
-        }
-      ]
-    },
-    {
-      "property": "grubość środnika",
-      "propertySymbol": "s",
-      "propertyUnit": "mm",
-      "isSecondProperty": false,
-      "ranges": [
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "grubość środnika",
-          "rangePropertySymbol": "s",
-          "toleranceProperty": "grubość środnika",
-          "tolerancePropertySymbol": "s",
-          "canAgreeTolerance": false,
-          "rangeFrom": "0",
-          "rangeTo": "7",
-          "toleranceStart": "1",
-          "toleranceEnd": "0.5"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "grubość środnika",
-          "rangePropertySymbol": "s",
-          "toleranceProperty": "grubość środnika",
-          "tolerancePropertySymbol": "s",
-          "canAgreeTolerance": false,
-          "rangeFrom": "7",
-          "rangeTo": "10",
-          "toleranceStart": "1.5",
-          "toleranceEnd": "0.7"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "grubość środnika",
-          "rangePropertySymbol": "s",
-          "toleranceProperty": "grubość środnika",
-          "tolerancePropertySymbol": "s",
-          "canAgreeTolerance": false,
-          "rangeFrom": "10",
-          "rangeTo": "NULL",
-          "toleranceStart": "2",
-          "toleranceEnd": "1"
-        }
-      ]
-    },
-    {
-      "property": "skośność stopek",
-      "propertySymbol": "k",
-      "propertyUnit": "mm",
-      "isSecondProperty": true,
-      "propertySecond": "skośność stopek",
-      "propertySecondSymbol": "k`",
-      "propertiesOperation": "",
-      "ranges": [
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "szerokość stopki",
-          "rangePropertySymbol": "b",
-          "toleranceProperty": "szerokość stopki",
-          "tolerancePropertySymbol": "b",
-          "canAgreeTolerance": false,
-          "rangeFrom": "0",
-          "rangeTo": "100",
-          "toleranceStart": "0",
-          "toleranceEnd": "2"
-        },
-        {
-          "rangeUnit": "%",
-          "rangeProperty": "szerokość stopki",
-          "rangePropertySymbol": "b",
-          "toleranceProperty": "szerokość stopki",
-          "tolerancePropertySymbol": "b",
-          "canAgreeTolerance": false,
-          "rangeFrom": "100",
-          "rangeTo": "NULL",
-          "toleranceStart": "0",
-          "toleranceEnd": "2"
-        }
-      ]
-    },
-    {
-      "property": "niesymetryczność stopek",
-      "propertySymbol": "e",
-      "propertyUnit": "mm",
-      "isSecondProperty": false,
-      "ranges": [
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "szerokość stopki",
-          "rangePropertySymbol": "b",
-          "toleranceProperty": "niesymetryczność stopek",
-          "tolerancePropertySymbol": "e",
-          "canAgreeTolerance": false,
-          "rangeFrom": "0",
-          "rangeTo": "100",
-          "toleranceStart": "0",
-          "toleranceEnd": "2"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "szerokość stopki",
-          "rangePropertySymbol": "b",
-          "toleranceProperty": "niesymetryczność stopek",
-          "tolerancePropertySymbol": "e",
-          "canAgreeTolerance": false,
-          "rangeFrom": "100",
-          "rangeTo": "NULL",
-          "toleranceStart": "0",
-          "toleranceEnd": "3"
-        }
-      ]
-    },
-    {
-      "property": "masa",
-      "propertySymbol": "m",
-      "propertyUnit": "mm",
-      "isSecondProperty": false,
-      "ranges": [
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "masa",
-          "rangePropertySymbol": "m",
-          "toleranceProperty": "masa",
-          "tolerancePropertySymbol": "m",
-          "canAgreeTolerance": false,
-          "rangeFrom": "0",
-          "rangeTo": "NULL",
-          "toleranceStart": "4",
-          "toleranceEnd": "4"
-        }
-      ]
-    },
-    {
-      "property": "długość",
-      "propertySymbol": "L",
+      "property": "długość ramienia",
+      "propertySymbol": "a",
       "propertyUnit": "mm",
       "isSecondProperty": false,
       "ranges": [
         {
           "rangeUnit": "mm",
           "rangeProperty": "długość",
-          "rangePropertySymbol": "L",
+          "rangePropertySymbol": "a",
+          "toleranceProperty": "długość",
+          "tolerancePropertySymbol": "a",
+          "canAgreeTolerance": false,
+          "rangeFrom": "0",
+          "rangeTo": "50",
+          "toleranceStart": "1",
+          "toleranceEnd": "1"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "długość",
+          "rangePropertySymbol": "a",
+          "toleranceProperty": "długość",
+          "tolerancePropertySymbol": "a",
+          "canAgreeTolerance": false,
+          "rangeFrom": "50",
+          "rangeTo": "100",
+          "toleranceStart": "2",
+          "toleranceEnd": "2"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "długość",
+          "rangePropertySymbol": "a",
+          "toleranceProperty": "długość",
+          "tolerancePropertySymbol": "a",
+          "canAgreeTolerance": false,
+          "rangeFrom": "100",
+          "rangeTo": "150",
+          "toleranceStart": "3",
+          "toleranceEnd": "3"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "długość",
+          "rangePropertySymbol": "a",
+          "toleranceProperty": "długość",
+          "tolerancePropertySymbol": "a",
+          "canAgreeTolerance": false,
+          "rangeFrom": "150",
+          "rangeTo": "200",
+          "toleranceStart": "4",
+          "toleranceEnd": "4"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "długość",
+          "rangePropertySymbol": "a",
+          "toleranceProperty": "długość",
+          "tolerancePropertySymbol": "a",
+          "canAgreeTolerance": false,
+          "rangeFrom": "200",
+          "rangeTo": "NULL",
+          "toleranceStart": "4",
+          "toleranceEnd": "6"
+        }
+      ]
+    },
+    {
+      "property": "grubość ramienia",
+      "propertySymbol": "t",
+      "propertyUnit": "mm",
+      "isSecondProperty": false,
+      "ranges": [
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "grubość",
+          "rangePropertySymbol": "t",
+          "toleranceProperty": "grubość",
+          "tolerancePropertySymbol": "t",
+          "canAgreeTolerance": false,
+          "rangeFrom": "0",
+          "rangeTo": "5",
+          "toleranceStart": "0.5",
+          "toleranceEnd": "0.5"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "grubość",
+          "rangePropertySymbol": "t",
+          "toleranceProperty": "grubość",
+          "tolerancePropertySymbol": "t",
+          "canAgreeTolerance": false,
+          "rangeFrom": "5",
+          "rangeTo": "10",
+          "toleranceStart": "0.75",
+          "toleranceEnd": "0.75"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "grubość",
+          "rangePropertySymbol": "t",
+          "toleranceProperty": "grubość",
+          "tolerancePropertySymbol": "t",
+          "canAgreeTolerance": false,
+          "rangeFrom": "10",
+          "rangeTo": "15",
+          "toleranceStart": "1",
+          "toleranceEnd": "1"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "grubość",
+          "rangePropertySymbol": "t",
+          "toleranceProperty": "grubość",
+          "tolerancePropertySymbol": "t",
+          "canAgreeTolerance": false,
+          "rangeFrom": "15",
+          "rangeTo": "NULL",
+          "toleranceStart": "1.2",
+          "toleranceEnd": "1.2"
+        }
+      ]
+    },
+    {
+      "property": "skośność",
+      "propertySymbol": "k",
+      "propertyUnit": "mm",
+      "isSecondProperty": false,
+      "ranges": [
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "długość ramienia",
+          "rangePropertySymbol": "a",
+          "toleranceProperty": "skośność",
+          "tolerancePropertySymbol": "k",
+          "canAgreeTolerance": false,
+          "rangeFrom": "0",
+          "rangeTo": "100",
+          "toleranceStart": "0",
+          "toleranceEnd": "1"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "długość ramienia",
+          "rangePropertySymbol": "a",
+          "toleranceProperty": "skośność",
+          "tolerancePropertySymbol": "k",
+          "canAgreeTolerance": false,
+          "rangeFrom": "100",
+          "rangeTo": "150",
+          "toleranceStart": "0",
+          "toleranceEnd": "1.5"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "długość ramienia",
+          "rangePropertySymbol": "a",
+          "toleranceProperty": "skośność",
+          "tolerancePropertySymbol": "k",
+          "canAgreeTolerance": false,
+          "rangeFrom": "150",
+          "rangeTo": "200",
+          "toleranceStart": "0",
+          "toleranceEnd": "2"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "długość ramienia",
+          "rangePropertySymbol": "a",
+          "toleranceProperty": "skośność",
+          "tolerancePropertySymbol": "k",
+          "canAgreeTolerance": false,
+          "rangeFrom": "200",
+          "rangeTo": "",
+          "toleranceStart": "0",
+          "toleranceEnd": "3"
+        }
+      ]
+    },
+    {
+      "property": "prostość (całość)",
+      "propertySymbol": "q",
+      "propertyUnit": "mm",
+      "isSecondProperty": false,
+      "ranges": [
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "długość ramienia",
+          "rangePropertySymbol": "a",
           "toleranceProperty": "długość",
           "tolerancePropertySymbol": "L",
-          "canAgreeTolerance": true,
-          "toleranceStartAgreement": "50",
-          "toleranceEndAgreement": "100",
+          "canAgreeTolerance": false,
           "rangeFrom": "0",
-          "rangeTo": "NULL",
-          "toleranceStart": "50",
-          "toleranceEnd": "50"
+          "rangeTo": "150",
+          "toleranceUnit": "%",
+
+          "toleranceStart": "0",
+          "toleranceEnd": "0.4"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "długość ramienia",
+          "rangePropertySymbol": "a",
+          "toleranceProperty": "długość",
+          "tolerancePropertySymbol": "L",
+          "canAgreeTolerance": false,
+          "rangeFrom": "150",
+          "rangeTo": "200",
+          "toleranceUnit": "%",
+
+          "toleranceStart": "0",
+          "toleranceEnd": "0.2"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "długość ramienia",
+          "rangePropertySymbol": "a",
+          "toleranceProperty": "długość",
+          "tolerancePropertySymbol": "L",
+          "canAgreeTolerance": false,
+          "rangeFrom": "200",
+          "rangeTo": "",
+          "toleranceStart": "0",
+          "toleranceUnit": "%",
+
+          "toleranceEnd": "0.1"
+        }
+      ]
+    },
+    {
+      "property": "prostość (część)",
+      "propertySymbol": "q",
+      "propertyUnit": "mm",
+      "isSecondProperty": false,
+      "ranges": [
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "długość pomiarowa",
+          "rangePropertySymbol": "dp",
+          "toleranceProperty": "prostość",
+          "tolerancePropertySymbol": "q",
+          "canAgreeTolerance": false,
+          "rangeFrom": "1500",
+          "rangeTo": "1500",
+
+          "toleranceStart": "0",
+          "toleranceEnd": "6"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "długość pomiarowa",
+          "rangePropertySymbol": "dp",
+          "toleranceProperty": "prostość",
+          "tolerancePropertySymbol": "q",
+          "canAgreeTolerance": false,
+          "rangeFrom": "2000",
+          "rangeTo": "2000",
+          "toleranceStart": "0",
+          "toleranceEnd": "3"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "długość pomiarowa",
+          "rangePropertySymbol": "dp",
+          "toleranceProperty": "prostość",
+          "tolerancePropertySymbol": "q",
+          "canAgreeTolerance": false,
+          "rangeFrom": "3000",
+          "rangeTo": "3000",
+          "toleranceStart": "0",
+          "toleranceEnd": "3"
         }
       ]
     }

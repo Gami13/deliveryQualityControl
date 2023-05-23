@@ -20,6 +20,7 @@
           "canAgreeTolerance": false,
           "rangeFrom": "80",
           "rangeTo": "180",
+          "toleranceUnit": "%",
           "toleranceStart": "0",
           "toleranceEnd": "0.3"
         },
@@ -32,6 +33,8 @@
           "canAgreeTolerance": false,
           "rangeFrom": "180",
           "rangeTo": "360",
+          "toleranceUnit": "%",
+
           "toleranceStart": "0",
           "toleranceEnd": "0.15"
         },
@@ -45,6 +48,8 @@
           "rangeFrom": "360",
           "rangeTo": "NULL",
           "toleranceStart": "0",
+          "toleranceUnit": "%",
+
           "toleranceEnd": "0.1"
         }
       ]
@@ -279,6 +284,7 @@
           "canAgreeTolerance": false,
           "rangeFrom": "100",
           "rangeTo": "NULL",
+          "toleranceUnit": "%",
           "toleranceStart": "0",
           "toleranceEnd": "2"
         }

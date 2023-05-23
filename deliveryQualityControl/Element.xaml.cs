@@ -1,25 +1,43 @@
-﻿namespace deliveryQualityControl;
+﻿using Microsoft.Maui.Controls;
+using System.Diagnostics;
+using System.Web;
 
-public partial class Element : ContentPage
+namespace deliveryQualityControl;
+
+public partial class Element : ContentPage, IQueryAttributable
 {
-	int count = 0;
+    public string code { get; set; }
+
 
 	public Element()
 	{
 		InitializeComponent();
-	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+        propertyList.ItemsSource = Database.getListOfProperties(code);
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+    }
 
-		Database.test();
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+        code = HttpUtility.UrlDecode(query["code"].ToString());
+        Debug.WriteLine(code);
+        propertyList.ItemsSource = Database.getListOfProperties(code);
+
+        OnPropertyChanged("code");
+
+    }
+    async void onTapped(object sender, EventArgs e)
+    {
+        // var code = (((ViewCell)sender).BindingContext as ElementRow).code;
+
+
+
+        // await Shell.Current.GoToAsync($"//Element?code={code}");
+        Debug.WriteLine("tapperino tapperino");
+
+
+
+    }
 }
 

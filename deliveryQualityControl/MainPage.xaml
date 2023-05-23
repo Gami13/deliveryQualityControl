@@ -1,39 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="Main"
              x:Class="deliveryQualityControl.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <ScrollView Margin="30,0">
+        
+        <VerticalStackLayout Padding="0,30">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+            <Editor Placeholder="Wyszukaj"/>
+            <ListView x:Name="materialList" HasUnevenRows="True" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Tapped="onTapped"   >
+                            
+                            <VerticalStackLayout Padding="10,10">
+                                <Label Text="{Binding code}" FontSize="18" FontAttributes="Bold" TextColor="DarkSlateBlue"/>
+                                <Label Text="{Binding name}" TextColor="DarkSlateGray"  FontSize="12" />
+                                <BoxView HeightRequest="1" Color="Black" />
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+                        </ViewCell>
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+
+
+
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+       
 
         </VerticalStackLayout>
     </ScrollView>

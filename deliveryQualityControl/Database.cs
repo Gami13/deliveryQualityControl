@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Globalization;
 using Dapper;
 using Microsoft.Data.SqlClient;
 namespace deliveryQualityControl { 
@@ -8,7 +9,7 @@ namespace deliveryQualityControl {
 public class ElementRow {
 public int id { get;}
     public string code { get;  }
-    public string property { get; }
+    public string property { get; set; }
     public string propertySymbol { get; }
     public string propertySecond { get; }
     public string propertySecondSymbol { get; }
@@ -27,22 +28,27 @@ public int id { get;}
     public string illustration { get; }
     public double toleranceStartAgreement { get; }
     public double toleranceEndAgreement { get; }
-    public string name { get; }
+    public string name { get; set; }
 }
 
 
 public class Database {
 
         static IDbConnection db = new SqlConnection("Server=localhost;Database=QualityControl;User=sa;Password=haslo123;TrustServerCertificate=True");
-        
+        static TextInfo textInfo = new CultureInfo("pl-PL", false).TextInfo;
         public static void test()
         {
             Debug.WriteLine(getListOfRanges("PN-EN 10024", "prostość").FirstOrDefault().propertySymbol);
         }
         public static List<ElementRow> getListOfMaterials()
     {
-       
+
+           
             List<ElementRow> query = db.Query<ElementRow>("SELECT elements.code, elements.name FROM elements GROUP BY code, name").ToList();
+            for (int i = 0; i<query.Count; i++)
+            {
+                query[i].name =  string.Format(textInfo.ToTitleCase(query[i].name.ToLower()));
+            }
    
               return query;
             
@@ -52,8 +58,11 @@ public class Database {
             List<ElementRow> query = db.Query<ElementRow>("SELECT DISTINCT elements.property FROM elements WHERE code = @code", new Dictionary<string, object>
 { {"code",code } }).ToList();
 
-
-
+            Debug.WriteLine(query.Count);
+            //for (int i = 0; i < query.Count; i++)
+            {
+               // query[i].property = string.Format(textInfo.ToTitleCase(query[i].property.ToLower()));
+            }
             return query;
 
         }

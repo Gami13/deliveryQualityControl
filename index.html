@@ -469,7 +469,7 @@
 
 						let rangeObject = structuredClone(rangeObjectPre);
 
-						rangeObject.toleranceUnit = range.children[2].value;
+						rangeObject.toleranceUnit = range.children[5].children[0].value;
 						rangeObject.canAgreeTolerance = range.children[6].children[0].checked;
 						if (rangeObject.canAgreeTolerance) {
 							console.log(range.children[7].children[1])
