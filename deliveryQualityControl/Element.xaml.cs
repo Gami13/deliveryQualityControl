@@ -1,5 +1,4 @@
-﻿using Microsoft.Maui.Controls;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Web;
 
 namespace deliveryQualityControl;
@@ -9,9 +8,9 @@ public partial class Element : ContentPage, IQueryAttributable
     public string code { get; set; }
 
 
-	public Element()
-	{
-		InitializeComponent();
+    public Element()
+    {
+        InitializeComponent();
 
         propertyList.ItemsSource = Database.getListOfProperties(code);
 
@@ -27,7 +26,7 @@ public partial class Element : ContentPage, IQueryAttributable
         OnPropertyChanged("code");
 
     }
-    async void onTapped(object sender, EventArgs e)
+    void onTapped(object sender, EventArgs e)
     {
         // var code = (((ViewCell)sender).BindingContext as ElementRow).code;
 

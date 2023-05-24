@@ -413,11 +413,11 @@ for (i in data.properties) {
       toleranceUnit = str(toleranceUnit);
     }
 
-    let sql = `INSERT INTO dbo.elements(
+    let sql = `INSERT INTO elements(
 	code,name,property,propertySymbol,propertySecond, \n propertySecondSymbol, propertiesOperation, propertyUnit,rangeFrom,rangeTo,rangeUnit, \n rangeProperty,rangePropertySymbol,toleranceStart, \n toleranceEnd,toleranceUnit,toleranceProperty,tolerancePropertySymbol,illustration, \n toleranceStartAgreement,toleranceEndAgreement
 	) VALUES(
 	${data.code},${data.name}, \n ${property},${propertySymbol},${propertySecond},${propertySecondSymbol},${propertiesOperation}, \n ${propertyUnit},${rangeFrom},${rangeTo},${rangeUnit},${rangeProperty}, \n ${rangePropertySymbol},${toleranceStart},${toleranceEnd},${toleranceUnit},${toleranceProperty}, \n ${tolerancePropertySymbol},${illustration},${toleranceStartAgreement},${toleranceEndAgreement}
-	)\n`;
+	),\n`;
     console.log(sql);
   }
 }

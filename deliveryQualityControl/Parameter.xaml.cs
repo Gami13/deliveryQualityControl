@@ -2,24 +2,24 @@
 
 public partial class Parameter : ContentPage
 {
-	int count = 0;
+    int count = 0;
 
-	public Parameter()
-	{
-		InitializeComponent();
-	}
+    public Parameter()
+    {
+        InitializeComponent();
+    }
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+    private void OnCounterClicked(object sender, EventArgs e)
+    {
+        count++;
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+        if (count == 1)
+            CounterBtn.Text = $"Clicked {count} time";
+        else
+            CounterBtn.Text = $"Clicked {count} times";
 
-		Database.test();
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+        Database.test();
+        SemanticScreenReader.Announce(CounterBtn.Text);
+    }
 }
 

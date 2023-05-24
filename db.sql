@@ -36,4 +36,28 @@ GO CREATE TABLE [dbo].[elements](
 			OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF
 		) ON [PRIMARY]
 	) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
+GO CREATE TABLE elements(
+		id int NOT NULL AUTO_INCREMENT,
+		code varchar(255) NOT NULL,
+		property varchar(255) NOT NULL,
+		propertySymbol varchar(3) NOT NULL,
+		propertySecond varchar(255) NULL,
+		propertySecondSymbol varchar(3) NULL,
+		propertiesOperation varchar(255) NULL,
+		propertyUnit varchar(10) NOT NULL,
+		rangeFrom DECIMAL(19, 4) NULL,
+		rangeTo DECIMAL(19, 4) NULL,
+		rangeUnit varchar(10) NOT NULL,
+		rangeProperty varchar(255) NOT NULL,
+		rangePropertySymbol varchar(3) NOT NULL,
+		toleranceStart DECIMAL(19, 4) NULL,
+		toleranceEnd DECIMAL(19, 4) NULL,
+		toleranceUnit varchar(10) NOT NULL,
+		toleranceProperty varchar(255) NULL,
+		tolerancePropertySymbol varchar(3) NULL,
+		illustration varchar(255) NULL,
+		toleranceStartAgreement DECIMAL(19, 4) NULL,
+		toleranceEndAgreement DECIMAL(19, 4) NULL,
+		name varchar(255) NOT NULL,
+		PRIMARY KEY(id)
+	)
