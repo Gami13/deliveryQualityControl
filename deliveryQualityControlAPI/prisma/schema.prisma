@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model elements {
+  id                      Int      @id @default(autoincrement())
+  code                    String   @db.VarChar(255)
+  property                String   @db.VarChar(255)
+  propertySymbol          String   @db.VarChar(3)
+  propertySecond          String?  @db.VarChar(255)
+  propertySecondSymbol    String?  @db.VarChar(3)
+  propertiesOperation     String?  @db.VarChar(255)
+  propertyUnit            String   @db.VarChar(10)
+  rangeFrom               Decimal? @db.Decimal(19, 4)
+  rangeTo                 Decimal? @db.Decimal(19, 4)
+  rangeUnit               String   @db.VarChar(10)
+  rangeProperty           String   @db.VarChar(255)
+  rangePropertySymbol     String   @db.VarChar(3)
+  toleranceStart          Decimal? @db.Decimal(19, 4)
+  toleranceEnd            Decimal? @db.Decimal(19, 4)
+  toleranceUnit           String   @db.VarChar(10)
+  toleranceProperty       String?  @db.VarChar(255)
+  tolerancePropertySymbol String?  @db.VarChar(3)
+  illustration            String?  @db.VarChar(255)
+  toleranceStartAgreement Decimal? @db.Decimal(19, 4)
+  toleranceEndAgreement   Decimal? @db.Decimal(19, 4)
+  name                    String   @db.VarChar(255)
+}
