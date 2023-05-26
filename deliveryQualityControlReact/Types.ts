@@ -22,4 +22,8 @@ type Element = {
   toleranceEndAgreement?: number;
   name?: string;
 };
-export type { Element };
+type ElementName = {
+  name: string;
+  code: string;
+};
+export type { Element, ElementName };

@@ -3,31 +3,31 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "sqlserver"
   url      = env("DATABASE_URL")
 }
 
 model elements {
-  id                      Int      @id @default(autoincrement())
-  code                    String   @db.VarChar(255)
-  property                String   @db.VarChar(255)
+  id                      Int      @unique(map: "idIndex") @default(autoincrement())
+  code                    String   @db.VarChar(Max)
+  property                String   @db.VarChar(Max)
   propertySymbol          String   @db.VarChar(3)
-  propertySecond          String?  @db.VarChar(255)
+  propertySecond          String?  @db.VarChar(Max)
   propertySecondSymbol    String?  @db.VarChar(3)
-  propertiesOperation     String?  @db.VarChar(255)
+  propertiesOperation     String?  @db.VarChar(25)
   propertyUnit            String   @db.VarChar(10)
-  rangeFrom               Decimal? @db.Decimal(19, 4)
-  rangeTo                 Decimal? @db.Decimal(19, 4)
+  rangeFrom               Decimal? @db.Decimal(18, 0)
+  rangeTo                 Decimal? @db.Decimal(18, 0)
   rangeUnit               String   @db.VarChar(10)
-  rangeProperty           String   @db.VarChar(255)
+  rangeProperty           String   @db.VarChar(Max)
   rangePropertySymbol     String   @db.VarChar(3)
-  toleranceStart          Decimal? @db.Decimal(19, 4)
-  toleranceEnd            Decimal? @db.Decimal(19, 4)
+  toleranceStart          Decimal? @db.Decimal(18, 0)
+  toleranceEnd            Decimal? @db.Decimal(18, 0)
   toleranceUnit           String   @db.VarChar(10)
-  toleranceProperty       String?  @db.VarChar(255)
+  toleranceProperty       String?  @db.VarChar(Max)
   tolerancePropertySymbol String?  @db.VarChar(3)
-  illustration            String?  @db.VarChar(255)
-  toleranceStartAgreement Decimal? @db.Decimal(19, 4)
-  toleranceEndAgreement   Decimal? @db.Decimal(19, 4)
-  name                    String   @db.VarChar(255)
+  illustration            String?  @db.VarChar(Max)
+  toleranceStartAgreement Decimal? @db.Decimal(18, 0)
+  toleranceEndAgreement   Decimal? @db.Decimal(18, 0)
+  name                    String   @db.VarChar(Max)
 }

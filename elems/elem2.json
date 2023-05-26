@@ -1,0 +1,202 @@
+{
+  "code": "PN-EN 1058",
+  "name": "PRĘTY STALOWE PŁASKIE WALCOWANE NA GORĄCO OGÓLNEGO ZASTOSOWANIA",
+  "properties": [
+    {
+      "property": "szerokość",
+      "propertySymbol": "b",
+      "propertyUnit": "mm",
+      "isSecondProperty": false,
+      "ranges": [
+        {
+          "rangeProperty": "szerokość",
+          "rangePropertySymbol": "b",
+          "toleranceProperty": "szerokość",
+          "tolerancePropertySymbol": "b",
+          "toleranceUnit": "mm",
+          "canAgreeTolerance": false,
+          "rangeFrom": "10",
+          "rangeTo": "40",
+          "toleranceStart": "0.75",
+          "toleranceEnd": "0.75"
+        },
+        {
+          "rangeProperty": "szerokość",
+          "rangePropertySymbol": "b",
+          "toleranceProperty": "szerokość",
+          "tolerancePropertySymbol": "b",
+          "toleranceUnit": "mm",
+          "canAgreeTolerance": false,
+          "rangeFrom": "40",
+          "rangeTo": "80",
+          "toleranceStart": "1",
+          "toleranceEnd": "1"
+        },
+        {
+          "rangeProperty": "szerokość",
+          "rangePropertySymbol": "b",
+          "toleranceProperty": "szerokość",
+          "tolerancePropertySymbol": "b",
+          "toleranceUnit": "mm",
+          "canAgreeTolerance": false,
+          "rangeFrom": "80",
+          "rangeTo": "100",
+          "toleranceStart": "1.5",
+          "toleranceEnd": "1.5"
+        },
+        {
+          "rangeProperty": "szerokość",
+          "rangePropertySymbol": "b",
+          "toleranceProperty": "szerokość",
+          "tolerancePropertySymbol": "b",
+          "toleranceUnit": "mm",
+          "canAgreeTolerance": false,
+          "rangeFrom": "100",
+          "rangeTo": "120",
+          "toleranceStart": "2",
+          "toleranceEnd": "2"
+        },
+        {
+          "rangeProperty": "szerokość",
+          "rangePropertySymbol": "b",
+          "toleranceProperty": "szerokość",
+          "tolerancePropertySymbol": "b",
+          "toleranceUnit": "mm",
+          "canAgreeTolerance": false,
+          "rangeFrom": "120",
+          "rangeTo": "150",
+          "toleranceStart": "2.5",
+          "toleranceEnd": "2.5"
+        }
+      ]
+    },
+    {
+      "property": "grubość",
+      "propertySymbol": "t",
+      "propertyUnit": "mm",
+      "isSecondProperty": false,
+      "ranges": [
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "grubość",
+          "rangePropertySymbol": "t",
+          "toleranceProperty": "grubość",
+          "tolerancePropertySymbol": "t",
+          "toleranceUnit": "mm",
+          "canAgreeTolerance": false,
+          "rangeFrom": "0",
+          "rangeTo": "20",
+          "toleranceStart": "0.5",
+          "toleranceEnd": "0.5"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "grubość",
+          "rangePropertySymbol": "t",
+          "toleranceProperty": "grubość",
+          "tolerancePropertySymbol": "t",
+          "toleranceUnit": "mm",
+          "canAgreeTolerance": false,
+          "rangeFrom": "20",
+          "rangeTo": "40",
+          "toleranceStart": "1",
+          "toleranceEnd": "1"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "grubość",
+          "rangePropertySymbol": "t",
+          "toleranceProperty": "grubość",
+          "tolerancePropertySymbol": "t",
+          "toleranceUnit": "mm",
+          "canAgreeTolerance": false,
+          "rangeFrom": "40",
+          "rangeTo": "80",
+          "toleranceStart": "1.5",
+          "toleranceEnd": "1.5"
+        }
+      ]
+    },
+    {
+      "property": "prostość",
+      "propertySymbol": "q",
+      "propertyUnit": "mm",
+      "isSecondProperty": false,
+      "ranges": [
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "przekrój poprzeczny",
+          "rangePropertySymbol": "pp",
+          "toleranceProperty": "długość",
+          "tolerancePropertySymbol": "l",
+          "toleranceUnit": "%",
+          "canAgreeTolerance": false,
+          "rangeFrom": "0",
+          "rangeTo": "1000",
+          "toleranceStart": "0",
+          "toleranceEnd": "0.4"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "przekrój poprzeczny",
+          "rangePropertySymbol": "pp",
+          "toleranceProperty": "długość",
+          "tolerancePropertySymbol": "l",
+          "toleranceUnit": "%",
+          "canAgreeTolerance": false,
+          "rangeFrom": "1000",
+          "rangeTo": "null",
+          "toleranceStart": "0",
+          "toleranceEnd": "0.25"
+        }
+      ]
+    },
+    {
+      "property": "skośność",
+      "propertySymbol": "u",
+      "propertyUnit": "mm",
+      "isSecondProperty": false,
+      "ranges": [
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "grubość",
+          "rangePropertySymbol": "t",
+          "toleranceProperty": "skośność",
+          "tolerancePropertySymbol": "u",
+          "toleranceUnit": "mm",
+          "canAgreeTolerance": false,
+          "rangeFrom": "10",
+          "rangeTo": "25",
+          "toleranceStart": "0",
+          "toleranceEnd": "0.5"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "grubość",
+          "rangePropertySymbol": "t",
+          "toleranceProperty": "skośność",
+          "tolerancePropertySymbol": "u",
+          "toleranceUnit": "mm",
+          "canAgreeTolerance": false,
+          "rangeFrom": "25",
+          "rangeTo": "40",
+          "toleranceStart": "0",
+          "toleranceEnd": "1"
+        },
+        {
+          "rangeUnit": "mm",
+          "rangeProperty": "grubość",
+          "rangePropertySymbol": "t",
+          "toleranceProperty": "skośność",
+          "tolerancePropertySymbol": "u",
+          "toleranceUnit": "mm",
+          "canAgreeTolerance": false,
+          "rangeFrom": "40",
+          "rangeTo": "80",
+          "toleranceStart": "0",
+          "toleranceEnd": "1.5"
+        }
+      ]
+    }
+  ]
+}

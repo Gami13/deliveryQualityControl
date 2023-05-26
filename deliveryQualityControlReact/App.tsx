@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
-import { Element } from './Types';
+import { ElementName } from './Types';
+import Utils from './Utils';
+import ElementButton from './Components/ElementButton';
 
 export default function App() {
-  const [elements, setElements] = useState([] as Element[]);
+  const [elements, setElements] = useState([] as ElementName[]);
   const fetchElems = async () => {
     console.log('fetching');
     const response = await fetch('http://localhost:3000/allElements');
@@ -18,41 +20,28 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
       <FlatList
         style={styles.list}
         data={elements}
         renderItem={({ item }) => (
-          <Text style={styles.item}>{item.name + ' -- ' + item.code}</Text>
+          <ElementButton name={item.name} code={item.code} />
         )}
       />
-      <Text style={styles.test}>Testowy teskst</Text>
-      <StatusBar style="auto" backgroundColor="red" />
-      <Button title="Press me" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#181a1b',
     alignItems: 'center',
     justifyContent: 'center',
+    flex: 1,
+    padding: 40,
   },
-  test: {
-    color: 'red',
-    alignItems: 'center',
-    fontSize: 20,
-  },
-  item: {
-    margin: 10,
-    fontSize: 18,
-    height: 44,
-  },
+
   list: {
     flex: 1,
-    backgroundColor: '#fff',
 
     flexDirection: 'column',
   },
