@@ -1,44 +1,28 @@
-BEGIN TRY
-
-BEGIN TRAN;
-
 -- CreateTable
-CREATE TABLE [dbo].[elements] (
-    [id] INT NOT NULL IDENTITY(1,1),
-    [code] VARCHAR(max) NOT NULL,
-    [property] VARCHAR(max) NOT NULL,
-    [propertySymbol] VARCHAR(3) NOT NULL,
-    [propertySecond] VARCHAR(max),
-    [propertySecondSymbol] VARCHAR(3),
-    [propertiesOperation] VARCHAR(25),
-    [propertyUnit] VARCHAR(10) NOT NULL,
-    [rangeFrom] DECIMAL(18,0),
-    [rangeTo] DECIMAL(18,0),
-    [rangeUnit] VARCHAR(10) NOT NULL,
-    [rangeProperty] VARCHAR(max) NOT NULL,
-    [rangePropertySymbol] VARCHAR(3) NOT NULL,
-    [toleranceStart] DECIMAL(18,0),
-    [toleranceEnd] DECIMAL(18,0),
-    [toleranceUnit] VARCHAR(10) NOT NULL,
-    [toleranceProperty] VARCHAR(max),
-    [tolerancePropertySymbol] VARCHAR(3),
-    [illustration] VARCHAR(max),
-    [toleranceStartAgreement] DECIMAL(18,0),
-    [toleranceEndAgreement] DECIMAL(18,0),
-    [name] VARCHAR(max) NOT NULL,
-    CONSTRAINT [idIndex] UNIQUE NONCLUSTERED ([id])
+CREATE TABLE "elements" (
+    "id" SERIAL NOT NULL,
+    "code" VARCHAR(255) NOT NULL,
+    "property" VARCHAR(255) NOT NULL,
+    "propertysymbol" VARCHAR(3) NOT NULL,
+    "propertysecond" VARCHAR(255),
+    "propertysecondsymbol" VARCHAR(3),
+    "propertiesoperation" VARCHAR(255),
+    "propertyunit" VARCHAR(10) NOT NULL,
+    "rangefrom" DECIMAL(19,4),
+    "rangeto" DECIMAL(19,4),
+    "rangeunit" VARCHAR(10) NOT NULL,
+    "rangeproperty" VARCHAR(255) NOT NULL,
+    "rangepropertysymbol" VARCHAR(3) NOT NULL,
+    "tolerancestart" DECIMAL(19,4),
+    "toleranceend" DECIMAL(19,4),
+    "toleranceunit" VARCHAR(10) NOT NULL,
+    "toleranceproperty" VARCHAR(255),
+    "tolerancepropertysymbol" VARCHAR(3),
+    "illustration" VARCHAR(255),
+    "tolerancestartagreement" DECIMAL(19,4),
+    "toleranceendagreement" DECIMAL(19,4),
+    "name" VARCHAR(255) NOT NULL,
+
+    CONSTRAINT "elements_pkey" PRIMARY KEY ("id")
 );
-
-COMMIT TRAN;
-
-END TRY
-BEGIN CATCH
-
-IF @@TRANCOUNT > 0
-BEGIN
-    ROLLBACK TRAN;
-END;
-THROW
-
-END CATCH
 

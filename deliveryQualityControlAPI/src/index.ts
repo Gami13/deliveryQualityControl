@@ -16,6 +16,25 @@ app.get('/allElements', async (req, res) => {
 	res.json(allElements);
 	return true;
 });
+app.get('/allProperties/:code', async (req, res) => {
+	const code: string = req.params.code;
+	const allProperties: object | null = await prisma.elements.findMany({
+		where: {
+			code: code,
+		},
+		distinct: ['property'],
+		select: {
+			property: true,
+		},
+	});
+
+	if (!allProperties) {
+		res.status(404).send('Not found');
+		return;
+	}
+	res.json(allProperties);
+	return true;
+});
 app.listen(3000, () => {
 	console.log('Server started on port 3000');
 });

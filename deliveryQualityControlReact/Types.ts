@@ -26,4 +26,8 @@ type ElementName = {
   name: string;
   code: string;
 };
-export type { Element, ElementName };
+
+type Property = {
+  property: string;
+};
+export type { Element, ElementName, Property };
