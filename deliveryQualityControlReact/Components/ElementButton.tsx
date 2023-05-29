@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    fontFamily: 'Calibri',
+    fontFamily: 'comicsans',
     backgroundColor: '#242424',
     width: '100%',
   },

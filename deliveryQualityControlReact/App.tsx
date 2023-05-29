@@ -5,6 +5,7 @@ import ElementList from './Components/ElementList';
 import PropertyList from './Components/PropertyList';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import Validation from './Components/Validation';
 const Stack = createStackNavigator();
 export default function App() {
   return (
@@ -17,11 +18,11 @@ export default function App() {
           },
           headerTitleAlign: 'center',
           headerTitleStyle: {
-            color: 'rgb(13, 113, 236)',
+            color: 'rgb( 70,150, 200)',
           },
-          headerTintColor: 'rgb(13, 113, 236)',
+          headerTintColor: 'rgb( 70,150, 200)',
           headerBackTitleStyle: {
-            color: 'rgb(13, 113, 236)',
+            color: 'rgb( 70,150, 200)',
           },
         }}
       >
@@ -29,12 +30,6 @@ export default function App() {
           name="Home"
           options={{
             title: 'Lista Elementów',
-            headerStyle: {
-              backgroundColor: 'rgb(14,16,17)',
-            },
-            headerTitleStyle: {
-              color: 'rgb(13, 113, 236)',
-            },
           }}
           component={ElementList}
         />
@@ -43,6 +38,13 @@ export default function App() {
           component={PropertyList}
           options={{
             title: 'Właściwości',
+          }}
+        />
+        <Stack.Screen
+          name="Validation"
+          component={Validation}
+          options={{
+            title: 'Walidacja',
           }}
         />
       </Stack.Navigator>

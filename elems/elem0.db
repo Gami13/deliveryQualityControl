@@ -142,7 +142,7 @@ INSERT INTO elements(
 
 (
         'PN-EN 10024','DWUTEOWNIKI STALOWE Z POCHYLONĄ WEWNĘTRZNĄ POWIERZCHNIĄ STOPEK WALCOWANE NA GORĄCO',
- 'skośność stopek','k','skośność stopek','k`','SEPARATE',
+ 'skośność stopek','k','skośność stopek','k`','ADDITION',
  'mm',0,100,'mm','szerokość stopki',
  'b',0,2,'mm','szerokość stopki',
  'b',NULL,NULL,NULL
@@ -150,7 +150,7 @@ INSERT INTO elements(
 
 (
         'PN-EN 10024','DWUTEOWNIKI STALOWE Z POCHYLONĄ WEWNĘTRZNĄ POWIERZCHNIĄ STOPEK WALCOWANE NA GORĄCO',
- 'skośność stopek','k','skośność stopek','k`','SEPARATE',
+ 'skośność stopek','k','skośność stopek','k`','ADDITION',
  'mm',100,NULL,'%','szerokość stopki',
  'b',0,2,'%','szerokość stopki',
  'b',NULL,NULL,NULL

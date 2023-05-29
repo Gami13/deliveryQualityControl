@@ -12,7 +12,7 @@ const PropertyButton = ({ property, code, navigation }: Props) => (
   <TouchableOpacity
     style={styles.item}
     onPress={() => {
-      navigation.navigate('Property', { code: code, property: property });
+      navigation.navigate('Validation', { code: code, property: property });
     }}
   >
     <Text style={styles.property}>{Utils.toSentenceCase(property)}</Text>
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     justifyContent: 'center',
     alignItems: 'center',
-    fontFamily: 'Calibri',
+
     backgroundColor: '#242424',
     width: '100%',
   },
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     width: '100%',
     fontSize: 20,
     color: 'rgb(151,187, 223)',
-    fontWeight: 'bold',
+    fontWeight: '700',
   },
 });
 export default PropertyButton;
