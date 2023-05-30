@@ -187,3 +187,7 @@ INSERT INTO elements(
  'L',50,50,'mm','długość',
  'L',NULL,50,100
         )
+
+
+
+        UPDATE elements SET tolerancepropertysymbol = 'k' WHERE id = 18

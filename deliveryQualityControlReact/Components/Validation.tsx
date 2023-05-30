@@ -17,7 +17,8 @@ type Value = {
 };
 type Range = {
   property: string;
-  symbol: string;
+  propertySymbol: string;
+  rangeSymbol: string;
   rangeFrom: number;
   rangeTo: number;
   toleranceStart: number;
@@ -25,6 +26,7 @@ type Range = {
   toleranceUnit: string;
   toleranceProperty: string;
   tolerancePropertySymbol: string;
+  propertiesOperation?: string;
 };
 const Validation = ({ navigation, route }: Props) => {
   const code = route.params?.code;
@@ -37,6 +39,7 @@ const Validation = ({ navigation, route }: Props) => {
       'http://localhost:3000/ranges/' + code + '/' + property
     );
     const data = await response.json();
+    console.log(data);
 
     let values = [] as Value[];
     values.push({
@@ -93,19 +96,30 @@ const Validation = ({ navigation, route }: Props) => {
 
     let ranges = [] as Range[];
     data.forEach((element: any) => {
+      console.log('element', element);
       ranges.push({
         property: element.rangeproperty,
-        symbol: element.rangepropertysymbol,
+        rangeSymbol: element.rangepropertysymbol,
         rangeFrom: element.rangefrom,
         rangeTo: element.rangeto,
-
+        propertySymbol: element.propertysymbol,
         toleranceStart: element.tolerancestart,
         toleranceEnd: element.toleranceend,
         toleranceUnit: element.toleranceunit,
         toleranceProperty: element.toleranceproperty,
         tolerancePropertySymbol: element.tolerancepropertysymbol,
+        propertiesOperation: element.propertiesoperation,
       });
     });
+    ranges.forEach((range) => {
+      if (range.rangeFrom == null) {
+        range.rangeFrom = -Infinity;
+      }
+      if (range.rangeTo == null) {
+        range.rangeTo = Infinity;
+      }
+    });
+    setRanges(ranges);
     console.log(ranges);
   };
   useEffect(() => {
@@ -114,18 +128,62 @@ const Validation = ({ navigation, route }: Props) => {
   }, []);
   console.log(requiredValues);
   async function validate() {
-    let orderedValue = requiredValues.find(
-      (value) => value.type == 'range'
-    )?.value;
-    //get range where rangeFrom < orderedValue <= rangeTo
-    // let range = ranges.find((range: Range) => {
-    //   if (range.rangeTo == null) {
-    //     return orderedValue > range.rangeFrom;
-    //   }
-    //   if (range.rangeFrom == null) {
-    //     return orderedValue <= range.rangeTo;
-    //   }
-    // });
+    let orderedValue =
+      requiredValues.find((value) => value.type == 'range')?.value ?? 0;
+    //find correct range
+    let range: Range = ranges.find((range) => {
+      return (
+        orderedValue > (range as Range).rangeFrom &&
+        orderedValue <= (range as Range).rangeTo
+      );
+    }) as Range;
+    console.log(range);
+    let measuredValue =
+      requiredValues.find((value) => value.type == 'property')?.value ?? 0;
+    let secondMeasuredValue =
+      requiredValues.find((value) => value.type == 'secondProperty')?.value ??
+      0;
+    let toleranceStart;
+    let toleranceEnd;
+    let toleranceUnit = range.toleranceUnit;
+    let toleranceProperty = range.toleranceProperty;
+    let tolerancePropertySymbol = range.tolerancePropertySymbol;
+    if (range.tolerancePropertySymbol == range.propertySymbol) {
+      toleranceStart = range.toleranceStart;
+      toleranceEnd = range.toleranceEnd;
+    } else {
+      toleranceStart = orderedValue - range.toleranceStart;
+      toleranceEnd = orderedValue * 1.0 + range.toleranceEnd * 1.0;
+    }
+    console.log(toleranceUnit);
+    if (toleranceUnit == '%') {
+      let valueToPercent =
+        requiredValues.find((value) => value.symbol == tolerancePropertySymbol)
+          ?.value ?? 0;
+      console.log(valueToPercent);
+      let temp0 = valueToPercent * toleranceStart;
+      let temp1 = valueToPercent * toleranceEnd;
+      toleranceStart = temp0 / 100;
+      toleranceEnd = temp1 / 100;
+      console.log(
+        'tester',
+        toleranceStart,
+        toleranceEnd,
+        measuredValue,
+        orderedValue
+      );
+    }
+
+    if (range.propertiesOperation == 'ADDITION') {
+      measuredValue = measuredValue + secondMeasuredValue;
+    }
+
+    console.log(toleranceStart, toleranceEnd, measuredValue, orderedValue);
+    if (toleranceStart <= measuredValue && toleranceEnd >= measuredValue) {
+      console.log('ok');
+    } else {
+      console.log('not ok');
+    }
   }
 
   return (
@@ -138,37 +196,61 @@ const Validation = ({ navigation, route }: Props) => {
             case 'property':
               return (
                 <TextInput
+                  style={styles.input}
                   placeholder={
                     'Zmierzona ' + item.property + ' - ' + item.symbol
                   }
+                  onChange={(e) => {
+                    item.value = parseFloat(e.nativeEvent.text);
+                  }}
                 />
               );
             case 'secondProperty':
               return (
                 <TextInput
+                  style={styles.input}
                   placeholder={
                     'Zmierzona ' + item.property + ' - ' + item.symbol
                   }
+                  onChange={(e) => {
+                    item.value = parseFloat(e.nativeEvent.text);
+                  }}
                 />
               );
             case 'range':
               return (
                 <TextInput
+                  style={styles.input}
                   placeholder={
                     'Zamówiona ' + item.property + ' - ' + item.symbol
                   }
+                  onChange={(e) => {
+                    item.value = parseFloat(e.nativeEvent.text);
+                  }}
                 />
               );
             case 'tolerance':
               return (
-                <TextInput placeholder={item.property + ' - ' + item.symbol} />
+                <TextInput
+                  style={styles.input}
+                  placeholder={item.property + ' - ' + item.symbol}
+                  onChange={(e) => {
+                    item.value = parseFloat(e.nativeEvent.text);
+                  }}
+                />
               );
             default:
               return <Text>error</Text>;
           }
         }}
       />
-      <Button onPress={() => {}} color="blue" title="test" />
+      <Button
+        onPress={() => {
+          validate();
+        }}
+        color="blue"
+        title="test"
+      />
     </View>
   );
 };
@@ -187,6 +269,9 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   property: {},
+  input: {
+    backgroundColor: '#fff',
+  },
 });
 
 export default Validation;
