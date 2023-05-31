@@ -145,10 +145,14 @@ const Validation = ({ navigation, route }: Props) => {
       0;
     let toleranceStart;
     let toleranceEnd;
+    let propertiesOperation = range.propertiesOperation;
     let toleranceUnit = range.toleranceUnit;
     let toleranceProperty = range.toleranceProperty;
     let tolerancePropertySymbol = range.tolerancePropertySymbol;
-    if (range.tolerancePropertySymbol == range.propertySymbol) {
+    if (
+      range.tolerancePropertySymbol == range.propertySymbol ||
+      toleranceUnit == '%'
+    ) {
       toleranceStart = range.toleranceStart;
       toleranceEnd = range.toleranceEnd;
     } else {
@@ -160,29 +164,48 @@ const Validation = ({ navigation, route }: Props) => {
       let valueToPercent =
         requiredValues.find((value) => value.symbol == tolerancePropertySymbol)
           ?.value ?? 0;
-      console.log(valueToPercent);
-      let temp0 = valueToPercent * toleranceStart;
-      let temp1 = valueToPercent * toleranceEnd;
-      toleranceStart = temp0 / 100;
-      toleranceEnd = temp1 / 100;
+
+      toleranceStart = (valueToPercent * toleranceStart) / 100;
+      toleranceEnd = (valueToPercent * toleranceEnd) / 100;
+    }
+
+    if (propertiesOperation == 'ADDITION') {
+      measuredValue = measuredValue + secondMeasuredValue;
+    }
+    if (propertiesOperation == 'SUBTRACTION') {
+      measuredValue = measuredValue - secondMeasuredValue;
+    }
+    if (propertiesOperation == 'MULTIPLICATION') {
+      measuredValue = measuredValue * secondMeasuredValue;
+    }
+    if (propertiesOperation == 'DIVISION') {
+      measuredValue = measuredValue / secondMeasuredValue;
+    }
+    if (propertiesOperation == 'SEPARATE') {
+      if (
+        toleranceStart <= measuredValue &&
+        toleranceEnd >= measuredValue &&
+        toleranceStart <= secondMeasuredValue &&
+        toleranceEnd >= secondMeasuredValue
+      ) {
+        console.log('ok');
+      } else {
+        console.log('not ok');
+      }
+    }
+    if (propertiesOperation != 'SEPARATE') {
+      if (toleranceStart <= measuredValue && toleranceEnd >= measuredValue) {
+        console.log('ok');
+      } else {
+        console.log('not ok');
+      }
       console.log(
-        'tester',
         toleranceStart,
         toleranceEnd,
         measuredValue,
+        secondMeasuredValue,
         orderedValue
       );
-    }
-
-    if (range.propertiesOperation == 'ADDITION') {
-      measuredValue = measuredValue + secondMeasuredValue;
-    }
-
-    console.log(toleranceStart, toleranceEnd, measuredValue, orderedValue);
-    if (toleranceStart <= measuredValue && toleranceEnd >= measuredValue) {
-      console.log('ok');
-    } else {
-      console.log('not ok');
     }
   }
 
