@@ -20,7 +20,6 @@ const PropertyButton = ({ property, code, navigation }: Props) => (
 );
 const styles = StyleSheet.create({
   item: {
-    height: 44,
     flex: 1,
     marginBottom: 10,
     flexDirection: 'column',

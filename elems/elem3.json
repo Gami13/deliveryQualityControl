@@ -228,12 +228,12 @@
           "rangePropertySymbol": "r3",
           "toleranceProperty": "grubość stopki",
           "tolerancePropertySymbol": "t",
-          "toleranceUnit": "mm",
+          "toleranceUnit": "%",
           "canAgreeTolerance": false,
           "rangeFrom": "",
           "rangeTo": "",
           "toleranceStart": "0",
-          "toleranceEnd": "0.3"
+          "toleranceEnd": "30"
         }
       ]
     },
@@ -241,7 +241,10 @@
       "property": "skośność stopek",
       "propertySymbol": "k",
       "propertyUnit": "mm",
-      "isSecondProperty": false,
+      "isSecondProperty": true,
+      "propertySecond": "skośność stopek",
+      "propertySecondSymbol": "k1",
+      "propertiesOperation": "ADDITION",
       "ranges": [
         {
           "rangeUnit": "mm",
@@ -445,19 +448,6 @@
           "rangeTo": "",
           "toleranceStart": "0",
           "toleranceEnd": "100"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość",
-          "rangePropertySymbol": "l",
-          "toleranceProperty": "długość",
-          "tolerancePropertySymbol": "l",
-          "toleranceUnit": "mm",
-          "canAgreeTolerance": false,
-          "rangeFrom": "",
-          "rangeTo": "",
-          "toleranceStart": "",
-          "toleranceEnd": ""
         }
       ]
     },
