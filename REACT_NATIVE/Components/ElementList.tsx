@@ -8,7 +8,9 @@ const ElementList = ({ navigation }: any) => {
   const [elements, setElements] = useState([] as ElementName[]);
   const [search, setSearch] = useState('');
   const fetchElems = async () => {
-    const response = await fetch('http://localhost:3000/allElements');
+    const response = await fetch(
+      'https://temporary-dqcapi-izur.vercel.app/allElements'
+    );
     const data = await response.json();
     setElements(data);
     setAllElements(data);

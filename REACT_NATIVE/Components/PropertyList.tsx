@@ -13,7 +13,9 @@ const PropertyList = ({ navigation, route }: Props) => {
   const [properties, setProperties] = useState([] as Property[]);
   const fetchProperties = async () => {
     console.log('fetching');
-    const response = await fetch('http://localhost:3000/allProperties/' + code);
+    const response = await fetch(
+      'https://temporary-dqcapi-izur.vercel.app/allProperties/' + code
+    );
     const data = await response.json();
     setProperties(data);
   };

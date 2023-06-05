@@ -58,7 +58,9 @@ app.get('/ranges/:code/:property', async (req, res) => {
 	res.json(ranges);
 	return true;
 });
-
-app.listen(3000, () => {
+app.get('/', (req, res) => {
+	return res.send('IT WORKY WORKY pls pls pls psl');
+});
+app.listen(8080, () => {
 	console.log('Server started on port 3000');
 });

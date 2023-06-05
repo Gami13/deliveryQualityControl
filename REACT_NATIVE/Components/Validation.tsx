@@ -47,7 +47,7 @@ const Validation = ({ navigation, route }: Props) => {
   const fetchProperties = async () => {
     console.log('fetching');
     const response = await fetch(
-      'http://localhost:3000/ranges/' + code + '/' + property
+      'https://temporary-dqcapi-izur.vercel.app/ranges/' + code + '/' + property
     );
     const data = await response.json();
     console.log(data);
