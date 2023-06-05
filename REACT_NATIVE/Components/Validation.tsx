@@ -225,16 +225,27 @@ const Validation = ({ navigation, route }: Props) => {
     let toleranceProperty = range.toleranceProperty;
     let tolerancePropertySymbol = range.tolerancePropertySymbol;
     if (
-      range.tolerancePropertySymbol == range.propertySymbol ||
+      (tolerancePropertySymbol == range.propertySymbol &&
+        range.propertySymbol != range.rangeSymbol) ||
       toleranceUnit == '%'
     ) {
+      console.log('detected percentage');
       toleranceStart = range.toleranceStart;
       toleranceEnd = range.toleranceEnd;
     } else {
+      console.log('detected normal');
       toleranceStart = orderedValue - range.toleranceStart;
       toleranceEnd = orderedValue * 1.0 + range.toleranceEnd * 1.0;
     }
     console.log(toleranceUnit);
+    console.log(
+      toleranceStart,
+      toleranceEnd,
+      measuredValue,
+      secondMeasuredValue,
+      propertiesOperation,
+      orderedValue
+    );
     if (toleranceUnit == '%') {
       let valueToPercent =
         requiredValues.find((value) => value.symbol == tolerancePropertySymbol)

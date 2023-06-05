@@ -8,6 +8,9 @@ app.use(cors());
 app.get('/allElements', async (req, res) => {
 	const allElements: object | null = await prisma.elements.groupBy({
 		by: ['code', 'name'],
+		orderBy: {
+			name: 'asc',
+		},
 	});
 	if (!allElements) {
 		res.status(404).send('Not found');
@@ -25,6 +28,9 @@ app.get('/allProperties/:code', async (req, res) => {
 		distinct: ['property'],
 		select: {
 			property: true,
+		},
+		orderBy: {
+			property: 'asc',
 		},
 	});
 
