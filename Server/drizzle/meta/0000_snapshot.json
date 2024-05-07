@@ -1,0 +1,157 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "elements": {
+      "name": "elements",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "code": {
+          "name": "code",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "property": {
+          "name": "property",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "propertysymbol": {
+          "name": "propertysymbol",
+          "type": "varchar(6)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "propertysecond": {
+          "name": "propertysecond",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "propertysecondsymbol": {
+          "name": "propertysecondsymbol",
+          "type": "varchar(6)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "propertiesoperation": {
+          "name": "propertiesoperation",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "propertyunit": {
+          "name": "propertyunit",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rangefrom": {
+          "name": "rangefrom",
+          "type": "numeric(19, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rangeto": {
+          "name": "rangeto",
+          "type": "numeric(19, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rangeunit": {
+          "name": "rangeunit",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rangeproperty": {
+          "name": "rangeproperty",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rangepropertysymbol": {
+          "name": "rangepropertysymbol",
+          "type": "varchar(6)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tolerancestart": {
+          "name": "tolerancestart",
+          "type": "numeric(19, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "toleranceend": {
+          "name": "toleranceend",
+          "type": "numeric(19, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "toleranceunit": {
+          "name": "toleranceunit",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "toleranceproperty": {
+          "name": "toleranceproperty",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tolerancepropertysymbol": {
+          "name": "tolerancepropertysymbol",
+          "type": "varchar(6)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "illustration": {
+          "name": "illustration",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tolerancestartagreement": {
+          "name": "tolerancestartagreement",
+          "type": "numeric(19, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "toleranceendagreement": {
+          "name": "toleranceendagreement",
+          "type": "numeric(19, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
