@@ -5,8 +5,8 @@ import { migrate } from "drizzle-orm/postgres-js/migrator";
 import postgres from "postgres";
 import dotenv from "dotenv";
 import { elements } from "./schema";
-import { and, desc, eq, sql } from "drizzle-orm";
-import type { ElementJSON } from "./types";
+import { and, asc, desc, eq, sql } from "drizzle-orm";
+import type { ElementJSON, ElementPretty } from "./types";
 
 const fs = require("node:fs");
 dotenv.config();
@@ -18,7 +18,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/resetElements", async (req, res) => {
+app.get("/reset-elements", async (req, res) => {
 	await db.delete(elements);
 
 	const fileNames: string[] = fs.readdirSync("./elems");
@@ -29,99 +29,150 @@ app.get("/resetElements", async (req, res) => {
 			continue;
 		}
 
-		const fileContent = fs.readFileSync(`./elems/${fileName}`, "utf8");
-		const fileJSON = JSON.parse(fileContent) as ElementJSON;
+		const fileJSON = JSON.parse(
+			fs.readFileSync(`./elems/${fileName}`, "utf8"),
+		) as ElementJSON;
+
 		for (const prop of fileJSON.properties) {
 			for (const rg of prop.ranges) {
 				rangeCount++;
 
-				await db
-					.insert(elements)
-					.values({
-						code: fileJSON.code,
-						name: fileJSON.name,
-						property: prop.property,
-						propertysymbol: prop.propertySymbol,
-						propertysecond: prop.propertySecond || null,
-						propertysecondsymbol: prop.propertySecondSymbol || null,
-						propertiesoperation: prop.propertySecondOperation || null,
-						propertyunit: prop.propertyUnit,
-						rangefrom:
-							rg.rangeFrom?.toLowerCase() === "null" || rg.rangeFrom === ""
-								? null
-								: rg.rangeFrom,
-						rangeto:
-							rg.rangeTo?.toLowerCase() === "null" ||
-							rg.rangeTo.toLowerCase() === ""
-								? null
-								: rg.rangeTo,
-						rangeunit:
-							rg.rangeUnit === undefined ? prop.propertyUnit : rg.rangeUnit,
-						rangeproperty: rg.rangeProperty,
-						rangepropertysymbol: rg.rangePropertySymbol,
-						tolerancestart: rg.toleranceStart,
-						toleranceend: rg.toleranceEnd,
-						toleranceunit:
-							rg.toleranceUnit === undefined
-								? prop.propertyUnit
-								: rg.toleranceUnit,
-						toleranceproperty: rg.toleranceProperty,
-						tolerancepropertysymbol: rg.tolerancePropertySymbol,
-						illustration: null,
-						tolerancestartagreement: rg.toleranceStartAgreement || null,
-						toleranceendagreement: rg.toleranceEndAgreement || null,
-					})
-					.execute();
+				await db.insert(elements).values({
+					code: fileJSON.code,
+					name: fileJSON.name,
+					property: prop.property,
+					propertysymbol: prop.propertySymbol,
+					propertysecond: prop.propertySecond || null,
+					propertysecondsymbol: prop.propertySecondSymbol || null,
+					propertiesoperation: prop.propertySecondOperation || null,
+					propertyunit: prop.propertyUnit,
+					rangefrom:
+						rg.rangeFrom?.toLowerCase() === "null" || rg.rangeFrom === ""
+							? null
+							: rg.rangeFrom,
+					rangeto:
+						rg.rangeTo?.toLowerCase() === "null" ||
+						rg.rangeTo.toLowerCase() === ""
+							? null
+							: rg.rangeTo,
+					rangeunit:
+						rg.rangeUnit === undefined ? prop.propertyUnit : rg.rangeUnit,
+					rangeproperty: rg.rangeProperty,
+					rangepropertysymbol: rg.rangePropertySymbol,
+					tolerancestart: rg.toleranceStart,
+					toleranceend: rg.toleranceEnd,
+					toleranceunit:
+						rg.toleranceUnit === undefined
+							? prop.propertyUnit
+							: rg.toleranceUnit,
+					toleranceproperty: rg.toleranceProperty,
+					tolerancepropertysymbol: rg.tolerancePropertySymbol,
+					illustration: null,
+					tolerancestartagreement: rg.toleranceStartAgreement || null,
+					toleranceendagreement: rg.toleranceEndAgreement || null,
+				});
 			}
 		}
 	}
 	console.log("Range count", rangeCount);
 	res.send("Reset complete");
 });
-app.get("/allElements", async (req, res) => {
+app.get("/elements", async (req, res) => {
 	const allElements = await db
 		.select()
 		.from(elements)
-		.orderBy(desc(elements.code), desc(elements.name));
+		.orderBy(asc(elements.code), asc(elements.name));
 
 	if (!allElements) {
 		res.status(404).send("Not found");
 		return;
 	}
-	res.json(allElements);
-	return true;
-});
-app.get("/allProperties/:code", async (req, res) => {
-	const code: string = req.params.code;
-	console.log(code);
-	const allProperties = await db
-		.select()
-		.from(elements)
-		.where(eq(elements.code, code))
-		.orderBy(desc(elements.property), desc(elements.propertysymbol));
+	//Converting to ElementPretty
+	const elementsPretty: ElementPretty[] = [];
+	for (const elem of allElements) {
+		const range = {
+			rangeUnit: elem.rangeunit,
+			rangeProperty: elem.rangeproperty,
+			rangePropertySymbol: elem.rangepropertysymbol,
+			toleranceProperty: elem.toleranceproperty,
+			tolerancePropertySymbol: elem.tolerancepropertysymbol,
+			toleranceUnit: elem.toleranceunit,
+			canAgreeTolerance: elem.tolerancestartagreement !== null,
+			rangeFrom: Number.parseFloat(elem.rangefrom || "0"),
+			rangeTo: Number.parseFloat(elem.rangeto || "0"),
+			toleranceStart: Number.parseFloat(elem.tolerancestart || "0"),
+			toleranceEnd: Number.parseFloat(elem.toleranceend || "0"),
+			toleranceStartAgreement: Number.parseFloat(
+				elem.tolerancestartagreement || "0",
+			),
+			toleranceEndAgreement: Number.parseFloat(
+				elem.toleranceendagreement || "0",
+			),
+		};
+		const property = {
+			property: elem.property,
+			propertySymbol: elem.propertysymbol,
+			propertyUnit: elem.propertyunit,
+			propertySecond: elem.propertysecond || null,
+			propertySecondSymbol: elem.propertysecondsymbol || null,
+			propertySecondOperation: elem.propertiesoperation || null,
+			ranges: [range],
+		};
 
-	if (!allProperties) {
-		res.status(404).send("Not found");
-		return;
+		if (elementsPretty[elementsPretty.length - 1]?.code === elem.code) {
+			if (
+				elementsPretty[elementsPretty.length - 1].properties[
+					elementsPretty[elementsPretty.length - 1].properties.length - 1
+				].property === elem.property
+			) {
+				elementsPretty[elementsPretty.length - 1].properties[
+					elementsPretty[elementsPretty.length - 1].properties.length - 1
+				].ranges.push(range);
+			} else {
+				//add property
+				elementsPretty[elementsPretty.length - 1].properties.push(property);
+			}
+		} else {
+			//add element
+			elementsPretty.push({
+				code: elem.code,
+				name: elem.name,
+				properties: [property],
+				allNeededValues: [],
+			});
+		}
+		elementsPretty[elementsPretty.length - 1].allNeededValues.push({
+			name: elem.rangeproperty,
+			symbol: elem.rangepropertysymbol,
+			unit: elem.rangeunit,
+		});
+		// elementsPretty[elementsPretty.length - 1].allNeededValues.push({
+		// 	name: elem.toleranceproperty || "",
+		// 	symbol: elem.tolerancepropertysymbol || "",
+		// 	unit: elem.toleranceunit,
+		// });
+		elementsPretty[elementsPretty.length - 1].allNeededValues.push({
+			name: elem.property,
+			symbol: elem.propertysymbol,
+			unit: elem.propertyunit,
+		});
+
+		if (elem.propertysecond) {
+			elementsPretty[elementsPretty.length - 1].allNeededValues.push({
+				name: elem.propertysecond || "",
+				symbol: elem.propertysecondsymbol || "",
+				unit: elem.propertyunit,
+			});
+		}
 	}
-	res.json(allProperties);
-	return true;
-});
-app.get("/ranges/:code/:property", async (req, res) => {
-	const code: string = req.params.code;
-	const property: string = req.params.property;
-	console.log(code, property);
-	const ranges = await db
-		.select()
-		.from(elements)
-		.where(and(eq(elements.code, code), eq(elements.property, property)))
-		.orderBy(desc(elements.rangefrom), desc(elements.rangeto));
-	if (!ranges) {
-		res.status(404).send("Not found");
-		return;
+	//remove duplicate allNeededValues
+	for (const elem of elementsPretty) {
+		elem.allNeededValues = elem.allNeededValues.filter(
+			(v, i, a) =>
+				a.findIndex((t) => t.name === v.name && t.symbol === v.symbol) === i,
+		);
 	}
-	res.json(ranges);
-	return true;
+	res.send(elementsPretty);
 });
 app.get("/", (req, res) => {
 	return res.send("IT WORKY WORKY pls pls pls psl");

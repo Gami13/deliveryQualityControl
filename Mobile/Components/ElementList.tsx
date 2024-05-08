@@ -1,39 +1,19 @@
 import { FlatList, StyleSheet, TextInput, View } from 'react-native';
 import ElementButton from './ElementButton';
-import { useEffect, useState } from 'react';
-import { ElementName } from '../Types';
+import { useContext, useEffect, useState } from 'react';
+import type { ElementPretty } from '../Types';
+import { AppState } from '../App';
+import type { NavigationAction } from '@react-navigation/native';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-const ElementList = ({ navigation }: any) => {
-  const [allElements, setAllElements] = useState([] as ElementName[]); // [
-  const [elements, setElements] = useState([] as ElementName[]);
+const ElementList = ({
+  navigation,
+}: {
+  navigation: NativeStackScreenProps<Record<string, object>, 'Navigation'>;
+}) => {
+  const [allElements, setAllElements] = useContext(AppState);
   const [search, setSearch] = useState('');
-  const fetchElems = async () => {
-    const response = await fetch(
-      'https://temporary-dqcapi-izur.vercel.app/allElements'
-    );
-    const data = await response.json();
-    setElements(data);
-    setAllElements(data);
-  };
-  useEffect(() => {
-    const filtered = allElements.filter((element) =>
-      element.name.toLowerCase().includes(search.toLowerCase())
-    );
-    const filtered2 = allElements.filter((element) =>
-      element.code.toLowerCase().includes(search.toLowerCase())
-    );
-    filtered.push(...filtered2);
-    //remove duplicates
-    const filtered3 = filtered.filter(
-      (element, index, self) =>
-        index === self.findIndex((t) => t.code === element.code)
-    );
 
-    setElements(filtered3);
-  }, [search]);
-  useEffect(() => {
-    fetchElems();
-  }, []);
   return (
     <View style={styles.container}>
       <TextInput
@@ -44,7 +24,7 @@ const ElementList = ({ navigation }: any) => {
       />
       <FlatList
         style={styles.list}
-        data={elements}
+        data={allElements}
         renderItem={({ item }) => (
           <ElementButton
             name={item.name}
