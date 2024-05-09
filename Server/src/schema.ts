@@ -1,5 +1,6 @@
 import { pgTable, serial, text, decimal } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
+import { boolean } from "drizzle-orm/pg-core";
 
 export const elements = pgTable("elements", {
 	id: serial("id").primaryKey().notNull(),
@@ -30,4 +31,5 @@ export const elements = pgTable("elements", {
 		scale: 4,
 	}),
 	name: text("name").notNull(),
+	ispropertyorderable: boolean("ispropertyorderable").notNull(),
 });

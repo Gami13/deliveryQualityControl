@@ -9,7 +9,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: "prostość",
 				propertySecondSymbol: "qxx",
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -64,7 +65,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -119,7 +121,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -189,7 +192,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -259,7 +263,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -314,7 +319,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: "skośność stopek",
 				propertySecondSymbol: "k`",
-				propertySecondOperation: null,
+				propertiesOperation: "ADDITION",
+				isPropertyOrderable: false,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -354,7 +360,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -394,7 +401,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -402,7 +410,7 @@ export const MockData = [
 						rangePropertySymbol: "m",
 						toleranceProperty: "masa",
 						tolerancePropertySymbol: "m",
-						toleranceUnit: "mm",
+						toleranceUnit: "%",
 						canAgreeTolerance: false,
 						rangeFrom: 0,
 						rangeTo: 0,
@@ -419,7 +427,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -433,7 +442,7 @@ export const MockData = [
 						rangeTo: 0,
 						toleranceStart: 50,
 						toleranceEnd: 50,
-						toleranceStartAgreement: 50,
+						toleranceStartAgreement: 0,
 						toleranceEndAgreement: 100,
 					},
 				],
@@ -444,56 +453,67 @@ export const MockData = [
 				name: "wysokość",
 				symbol: "h",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "prostość",
 				symbol: "qyy",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "prostość",
 				symbol: "qxx",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "szerokość stopki",
 				symbol: "b",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "grubość stopki",
 				symbol: "t",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "grubość środnika",
 				symbol: "s",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "skośność stopek",
 				symbol: "k",
 				unit: "mm",
+				isOrderable: false,
 			},
 			{
 				name: "skośność stopek",
 				symbol: "k`",
 				unit: "mm",
+				isOrderable: false,
 			},
 			{
 				name: "niesymetryczność stopek",
 				symbol: "e",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "masa",
 				symbol: "m",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "długość",
 				symbol: "L",
 				unit: "mm",
+				isOrderable: true,
 			},
 		],
 	},
@@ -507,7 +527,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -592,7 +613,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -662,7 +684,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: false,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -732,7 +755,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: false,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -787,7 +811,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: false,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -799,7 +824,7 @@ export const MockData = [
 						canAgreeTolerance: false,
 						rangeFrom: 1500,
 						rangeTo: 1500,
-						toleranceStart: 0,
+						toleranceStart: 6,
 						toleranceEnd: 6,
 						toleranceStartAgreement: 0,
 						toleranceEndAgreement: 0,
@@ -814,7 +839,7 @@ export const MockData = [
 						canAgreeTolerance: false,
 						rangeFrom: 2000,
 						rangeTo: 2000,
-						toleranceStart: 0,
+						toleranceStart: 3,
 						toleranceEnd: 3,
 						toleranceStartAgreement: 0,
 						toleranceEndAgreement: 0,
@@ -829,7 +854,7 @@ export const MockData = [
 						canAgreeTolerance: false,
 						rangeFrom: 3000,
 						rangeTo: 3000,
-						toleranceStart: 0,
+						toleranceStart: 3,
 						toleranceEnd: 3,
 						toleranceStartAgreement: 0,
 						toleranceEndAgreement: 0,
@@ -842,41 +867,49 @@ export const MockData = [
 				name: "długość",
 				symbol: "a",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "długość ramienia",
 				symbol: "a",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "grubość",
 				symbol: "t",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "grubość ramienia",
 				symbol: "t",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "skośność",
 				symbol: "k",
 				unit: "mm",
+				isOrderable: false,
 			},
 			{
 				name: "prostość (całość)",
 				symbol: "q",
 				unit: "mm",
+				isOrderable: false,
 			},
 			{
 				name: "długość pomiarowa",
 				symbol: "dp",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "prostość (część)",
 				symbol: "q",
 				unit: "mm",
+				isOrderable: false,
 			},
 		],
 	},
@@ -890,7 +923,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -975,7 +1009,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -1030,7 +1065,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: false,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -1042,7 +1078,7 @@ export const MockData = [
 						canAgreeTolerance: false,
 						rangeFrom: 0,
 						rangeTo: 1000,
-						toleranceStart: 0,
+						toleranceStart: 0.4,
 						toleranceEnd: 0.4,
 						toleranceStartAgreement: 0,
 						toleranceEndAgreement: 0,
@@ -1057,7 +1093,7 @@ export const MockData = [
 						canAgreeTolerance: false,
 						rangeFrom: 1000,
 						rangeTo: 0,
-						toleranceStart: 0,
+						toleranceStart: 0.25,
 						toleranceEnd: 0.25,
 						toleranceStartAgreement: 0,
 						toleranceEndAgreement: 0,
@@ -1070,7 +1106,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -1125,26 +1162,31 @@ export const MockData = [
 				name: "szerokość",
 				symbol: "b",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "grubość",
 				symbol: "t",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "przekrój poprzeczny",
 				symbol: "pp",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "prostość",
 				symbol: "q",
 				unit: "mm",
+				isOrderable: false,
 			},
 			{
 				name: "skośność",
 				symbol: "u",
 				unit: "mm",
+				isOrderable: true,
 			},
 		],
 	},
@@ -1158,7 +1200,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -1228,7 +1271,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -1298,7 +1342,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -1353,7 +1398,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -1408,7 +1454,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -1433,7 +1480,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: "skośność stopek",
 				propertySecondSymbol: "k1",
-				propertySecondOperation: null,
+				propertiesOperation: "ADDITION",
+				isPropertyOrderable: false,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -1473,7 +1521,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: false,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -1543,7 +1592,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: false,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -1598,7 +1648,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: false,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -1653,7 +1704,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -1678,7 +1730,8 @@ export const MockData = [
 				propertyUnit: "mm",
 				propertySecond: null,
 				propertySecondSymbol: null,
-				propertySecondOperation: null,
+				propertiesOperation: null,
+				isPropertyOrderable: true,
 				ranges: [
 					{
 						rangeUnit: "mm",
@@ -1718,61 +1771,73 @@ export const MockData = [
 				name: "wysokość",
 				symbol: "h",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "szerokość stopki",
 				symbol: "b",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "grubość środnika",
 				symbol: "s",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "grubość stopki",
 				symbol: "t",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "promień naroża",
 				symbol: "r3",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "skośność stopek",
 				symbol: "k",
 				unit: "mm",
+				isOrderable: false,
 			},
 			{
 				name: "skośność stopek",
 				symbol: "k1",
 				unit: "mm",
+				isOrderable: false,
 			},
 			{
 				name: "wygięcie środnika",
 				symbol: "f",
 				unit: "mm",
+				isOrderable: false,
 			},
 			{
 				name: "prostość x",
 				symbol: "qxx",
 				unit: "mm",
+				isOrderable: false,
 			},
 			{
 				name: "prostość y",
 				symbol: "qyy",
 				unit: "mm",
+				isOrderable: false,
 			},
 			{
 				name: "długość",
 				symbol: "l",
 				unit: "mm",
+				isOrderable: true,
 			},
 			{
 				name: "masa",
 				symbol: "kg/m",
 				unit: "mm",
+				isOrderable: true,
 			},
 		],
 	},

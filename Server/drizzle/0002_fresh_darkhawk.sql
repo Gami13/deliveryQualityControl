@@ -1,0 +1,1 @@
+ALTER TABLE "elements" ADD COLUMN "ispropertyorderable" boolean NOT NULL;

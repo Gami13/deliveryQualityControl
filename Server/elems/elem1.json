@@ -1,281 +1,291 @@
 {
-  "code": "PN-EN 10056-2",
-  "name": "kątowniki równoramienne i nierównoramenne z stali konstrukcyjnej",
-  "properties": [
-    {
-      "property": "długość ramienia",
-      "propertySymbol": "a",
-      "propertyUnit": "mm",
-      "isSecondProperty": false,
-      "ranges": [
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość",
-          "rangePropertySymbol": "a",
-          "toleranceProperty": "długość",
-          "tolerancePropertySymbol": "a",
-          "canAgreeTolerance": false,
-          "rangeFrom": "0",
-          "rangeTo": "50",
-          "toleranceStart": "1",
-          "toleranceEnd": "1"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość",
-          "rangePropertySymbol": "a",
-          "toleranceProperty": "długość",
-          "tolerancePropertySymbol": "a",
-          "canAgreeTolerance": false,
-          "rangeFrom": "50",
-          "rangeTo": "100",
-          "toleranceStart": "2",
-          "toleranceEnd": "2"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość",
-          "rangePropertySymbol": "a",
-          "toleranceProperty": "długość",
-          "tolerancePropertySymbol": "a",
-          "canAgreeTolerance": false,
-          "rangeFrom": "100",
-          "rangeTo": "150",
-          "toleranceStart": "3",
-          "toleranceEnd": "3"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość",
-          "rangePropertySymbol": "a",
-          "toleranceProperty": "długość",
-          "tolerancePropertySymbol": "a",
-          "canAgreeTolerance": false,
-          "rangeFrom": "150",
-          "rangeTo": "200",
-          "toleranceStart": "4",
-          "toleranceEnd": "4"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość",
-          "rangePropertySymbol": "a",
-          "toleranceProperty": "długość",
-          "tolerancePropertySymbol": "a",
-          "canAgreeTolerance": false,
-          "rangeFrom": "200",
-          "rangeTo": "NULL",
-          "toleranceStart": "4",
-          "toleranceEnd": "6"
-        }
-      ]
-    },
-    {
-      "property": "grubość ramienia",
-      "propertySymbol": "t",
-      "propertyUnit": "mm",
-      "isSecondProperty": false,
-      "ranges": [
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "grubość",
-          "rangePropertySymbol": "t",
-          "toleranceProperty": "grubość",
-          "tolerancePropertySymbol": "t",
-          "canAgreeTolerance": false,
-          "rangeFrom": "0",
-          "rangeTo": "5",
-          "toleranceStart": "0.5",
-          "toleranceEnd": "0.5"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "grubość",
-          "rangePropertySymbol": "t",
-          "toleranceProperty": "grubość",
-          "tolerancePropertySymbol": "t",
-          "canAgreeTolerance": false,
-          "rangeFrom": "5",
-          "rangeTo": "10",
-          "toleranceStart": "0.75",
-          "toleranceEnd": "0.75"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "grubość",
-          "rangePropertySymbol": "t",
-          "toleranceProperty": "grubość",
-          "tolerancePropertySymbol": "t",
-          "canAgreeTolerance": false,
-          "rangeFrom": "10",
-          "rangeTo": "15",
-          "toleranceStart": "1",
-          "toleranceEnd": "1"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "grubość",
-          "rangePropertySymbol": "t",
-          "toleranceProperty": "grubość",
-          "tolerancePropertySymbol": "t",
-          "canAgreeTolerance": false,
-          "rangeFrom": "15",
-          "rangeTo": "NULL",
-          "toleranceStart": "1.2",
-          "toleranceEnd": "1.2"
-        }
-      ]
-    },
-    {
-      "property": "skośność",
-      "propertySymbol": "k",
-      "propertyUnit": "mm",
-      "isSecondProperty": false,
-      "ranges": [
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość ramienia",
-          "rangePropertySymbol": "a",
-          "toleranceProperty": "skośność",
-          "tolerancePropertySymbol": "k",
-          "canAgreeTolerance": false,
-          "rangeFrom": "0",
-          "rangeTo": "100",
-          "toleranceStart": "0",
-          "toleranceEnd": "1"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość ramienia",
-          "rangePropertySymbol": "a",
-          "toleranceProperty": "skośność",
-          "tolerancePropertySymbol": "k",
-          "canAgreeTolerance": false,
-          "rangeFrom": "100",
-          "rangeTo": "150",
-          "toleranceStart": "0",
-          "toleranceEnd": "1.5"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość ramienia",
-          "rangePropertySymbol": "a",
-          "toleranceProperty": "skośność",
-          "tolerancePropertySymbol": "k",
-          "canAgreeTolerance": false,
-          "rangeFrom": "150",
-          "rangeTo": "200",
-          "toleranceStart": "0",
-          "toleranceEnd": "2"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość ramienia",
-          "rangePropertySymbol": "a",
-          "toleranceProperty": "skośność",
-          "tolerancePropertySymbol": "k",
-          "canAgreeTolerance": false,
-          "rangeFrom": "200",
-          "rangeTo": "",
-          "toleranceStart": "0",
-          "toleranceEnd": "3"
-        }
-      ]
-    },
-    {
-      "property": "prostość (całość)",
-      "propertySymbol": "q",
-      "propertyUnit": "mm",
-      "isSecondProperty": false,
-      "ranges": [
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość ramienia",
-          "rangePropertySymbol": "a",
-          "toleranceProperty": "długość",
-          "tolerancePropertySymbol": "L",
-          "canAgreeTolerance": false,
-          "rangeFrom": "0",
-          "rangeTo": "150",
-          "toleranceUnit": "%",
+	"code": "PN-EN 10056-2",
+	"name": "kątowniki równoramienne i nierównoramenne z stali konstrukcyjnej",
+	"properties": [
+		{
+			"property": "długość ramienia",
+			"propertySymbol": "a",
+			"propertyUnit": "mm",
+			"isSecondProperty": false,
+			"isPropertyOrderable": true,
 
-          "toleranceStart": "0",
-          "toleranceEnd": "0.4"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość ramienia",
-          "rangePropertySymbol": "a",
-          "toleranceProperty": "długość",
-          "tolerancePropertySymbol": "L",
-          "canAgreeTolerance": false,
-          "rangeFrom": "150",
-          "rangeTo": "200",
-          "toleranceUnit": "%",
+			"ranges": [
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość",
+					"rangePropertySymbol": "a",
+					"toleranceProperty": "długość",
+					"tolerancePropertySymbol": "a",
+					"canAgreeTolerance": false,
+					"rangeFrom": "0",
+					"rangeTo": "50",
+					"toleranceStart": "1",
+					"toleranceEnd": "1"
+				},
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość",
+					"rangePropertySymbol": "a",
+					"toleranceProperty": "długość",
+					"tolerancePropertySymbol": "a",
+					"canAgreeTolerance": false,
+					"rangeFrom": "50",
+					"rangeTo": "100",
+					"toleranceStart": "2",
+					"toleranceEnd": "2"
+				},
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość",
+					"rangePropertySymbol": "a",
+					"toleranceProperty": "długość",
+					"tolerancePropertySymbol": "a",
+					"canAgreeTolerance": false,
+					"rangeFrom": "100",
+					"rangeTo": "150",
+					"toleranceStart": "3",
+					"toleranceEnd": "3"
+				},
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość",
+					"rangePropertySymbol": "a",
+					"toleranceProperty": "długość",
+					"tolerancePropertySymbol": "a",
+					"canAgreeTolerance": false,
+					"rangeFrom": "150",
+					"rangeTo": "200",
+					"toleranceStart": "4",
+					"toleranceEnd": "4"
+				},
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość",
+					"rangePropertySymbol": "a",
+					"toleranceProperty": "długość",
+					"tolerancePropertySymbol": "a",
+					"canAgreeTolerance": false,
+					"rangeFrom": "200",
+					"rangeTo": "NULL",
+					"toleranceStart": "4",
+					"toleranceEnd": "6"
+				}
+			]
+		},
+		{
+			"property": "grubość ramienia",
+			"propertySymbol": "t",
+			"propertyUnit": "mm",
+			"isSecondProperty": false,
+			"isPropertyOrderable": true,
 
-          "toleranceStart": "0",
-          "toleranceEnd": "0.2"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość ramienia",
-          "rangePropertySymbol": "a",
-          "toleranceProperty": "długość",
-          "tolerancePropertySymbol": "L",
-          "canAgreeTolerance": false,
-          "rangeFrom": "200",
-          "rangeTo": "",
-          "toleranceStart": "0",
-          "toleranceUnit": "%",
+			"ranges": [
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "grubość",
+					"rangePropertySymbol": "t",
+					"toleranceProperty": "grubość",
+					"tolerancePropertySymbol": "t",
+					"canAgreeTolerance": false,
+					"rangeFrom": "0",
+					"rangeTo": "5",
+					"toleranceStart": "0.5",
+					"toleranceEnd": "0.5"
+				},
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "grubość",
+					"rangePropertySymbol": "t",
+					"toleranceProperty": "grubość",
+					"tolerancePropertySymbol": "t",
+					"canAgreeTolerance": false,
+					"rangeFrom": "5",
+					"rangeTo": "10",
+					"toleranceStart": "0.75",
+					"toleranceEnd": "0.75"
+				},
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "grubość",
+					"rangePropertySymbol": "t",
+					"toleranceProperty": "grubość",
+					"tolerancePropertySymbol": "t",
+					"canAgreeTolerance": false,
+					"rangeFrom": "10",
+					"rangeTo": "15",
+					"toleranceStart": "1",
+					"toleranceEnd": "1"
+				},
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "grubość",
+					"rangePropertySymbol": "t",
+					"toleranceProperty": "grubość",
+					"tolerancePropertySymbol": "t",
+					"canAgreeTolerance": false,
+					"rangeFrom": "15",
+					"rangeTo": "NULL",
+					"toleranceStart": "1.2",
+					"toleranceEnd": "1.2"
+				}
+			]
+		},
+		{
+			"property": "skośność",
+			"propertySymbol": "k",
+			"propertyUnit": "mm",
+			"isSecondProperty": false,
+			"isPropertyOrderable": false,
 
-          "toleranceEnd": "0.1"
-        }
-      ]
-    },
-    {
-      "property": "prostość (część)",
-      "propertySymbol": "q",
-      "propertyUnit": "mm",
-      "isSecondProperty": false,
-      "ranges": [
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość pomiarowa",
-          "rangePropertySymbol": "dp",
-          "toleranceProperty": "prostość",
-          "tolerancePropertySymbol": "q",
-          "canAgreeTolerance": false,
-          "rangeFrom": "1500",
-          "rangeTo": "1500",
+			"ranges": [
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość ramienia",
+					"rangePropertySymbol": "a",
+					"toleranceProperty": "skośność",
+					"tolerancePropertySymbol": "k",
+					"canAgreeTolerance": false,
+					"rangeFrom": "0",
+					"rangeTo": "100",
+					"toleranceStart": "0",
+					"toleranceEnd": "1"
+				},
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość ramienia",
+					"rangePropertySymbol": "a",
+					"toleranceProperty": "skośność",
+					"tolerancePropertySymbol": "k",
+					"canAgreeTolerance": false,
+					"rangeFrom": "100",
+					"rangeTo": "150",
+					"toleranceStart": "0",
+					"toleranceEnd": "1.5"
+				},
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość ramienia",
+					"rangePropertySymbol": "a",
+					"toleranceProperty": "skośność",
+					"tolerancePropertySymbol": "k",
+					"canAgreeTolerance": false,
+					"rangeFrom": "150",
+					"rangeTo": "200",
+					"toleranceStart": "0",
+					"toleranceEnd": "2"
+				},
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość ramienia",
+					"rangePropertySymbol": "a",
+					"toleranceProperty": "skośność",
+					"tolerancePropertySymbol": "k",
+					"canAgreeTolerance": false,
+					"rangeFrom": "200",
+					"rangeTo": "",
+					"toleranceStart": "0",
+					"toleranceEnd": "3"
+				}
+			]
+		},
+		{
+			"property": "prostość (całość)",
+			"propertySymbol": "q",
+			"propertyUnit": "mm",
+			"isSecondProperty": false,
+			"isPropertyOrderable": false,
 
-          "toleranceStart": "0",
-          "toleranceEnd": "6"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość pomiarowa",
-          "rangePropertySymbol": "dp",
-          "toleranceProperty": "prostość",
-          "tolerancePropertySymbol": "q",
-          "canAgreeTolerance": false,
-          "rangeFrom": "2000",
-          "rangeTo": "2000",
-          "toleranceStart": "0",
-          "toleranceEnd": "3"
-        },
-        {
-          "rangeUnit": "mm",
-          "rangeProperty": "długość pomiarowa",
-          "rangePropertySymbol": "dp",
-          "toleranceProperty": "prostość",
-          "tolerancePropertySymbol": "q",
-          "canAgreeTolerance": false,
-          "rangeFrom": "3000",
-          "rangeTo": "3000",
-          "toleranceStart": "0",
-          "toleranceEnd": "3"
-        }
-      ]
-    }
-  ]
+			"ranges": [
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość ramienia",
+					"rangePropertySymbol": "a",
+					"toleranceProperty": "długość",
+					"tolerancePropertySymbol": "L",
+					"canAgreeTolerance": false,
+					"rangeFrom": "0",
+					"rangeTo": "150",
+					"toleranceUnit": "%",
+
+					"toleranceStart": "0",
+					"toleranceEnd": "0.4"
+				},
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość ramienia",
+					"rangePropertySymbol": "a",
+					"toleranceProperty": "długość",
+					"tolerancePropertySymbol": "L",
+					"canAgreeTolerance": false,
+					"rangeFrom": "150",
+					"rangeTo": "200",
+					"toleranceUnit": "%",
+
+					"toleranceStart": "0",
+					"toleranceEnd": "0.2"
+				},
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość ramienia",
+					"rangePropertySymbol": "a",
+					"toleranceProperty": "długość",
+					"tolerancePropertySymbol": "L",
+					"canAgreeTolerance": false,
+					"rangeFrom": "200",
+					"rangeTo": "",
+					"toleranceStart": "0",
+					"toleranceUnit": "%",
+
+					"toleranceEnd": "0.1"
+				}
+			]
+		},
+		{
+			"property": "prostość (część)",
+			"propertySymbol": "q",
+			"propertyUnit": "mm",
+			"isSecondProperty": false,
+			"isPropertyOrderable": false,
+
+			"ranges": [
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość pomiarowa",
+					"rangePropertySymbol": "dp",
+					"toleranceProperty": "prostość",
+					"tolerancePropertySymbol": "q",
+					"canAgreeTolerance": false,
+					"rangeFrom": "1500",
+					"rangeTo": "1500",
+
+					"toleranceStart": "6",
+					"toleranceEnd": "6"
+				},
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość pomiarowa",
+					"rangePropertySymbol": "dp",
+					"toleranceProperty": "prostość",
+					"tolerancePropertySymbol": "q",
+					"canAgreeTolerance": false,
+					"rangeFrom": "2000",
+					"rangeTo": "2000",
+					"toleranceStart": "3",
+					"toleranceEnd": "3"
+				},
+				{
+					"rangeUnit": "mm",
+					"rangeProperty": "długość pomiarowa",
+					"rangePropertySymbol": "dp",
+					"toleranceProperty": "prostość",
+					"tolerancePropertySymbol": "q",
+					"canAgreeTolerance": false,
+					"rangeFrom": "3000",
+					"rangeTo": "3000",
+					"toleranceStart": "3",
+					"toleranceEnd": "3"
+				}
+			]
+		}
+	]
 }

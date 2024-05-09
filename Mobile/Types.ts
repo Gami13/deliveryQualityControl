@@ -15,7 +15,7 @@ type PropertyPretty = {
 	propertyUnit: string;
 	propertySecond: string | null;
 	propertySecondSymbol: string | null;
-	propertySecondOperation: string | null;
+	propertiesOperation: string | null;
 	ranges: RangePretty[];
 };
 type RangePretty = {
@@ -37,6 +37,7 @@ type ValueIn = {
 	name: string;
 	symbol: string;
 	unit: string;
+	isOrderable: boolean;
 };
 type PropertyJSON = {
 	property: string;
@@ -45,7 +46,7 @@ type PropertyJSON = {
 	isSecondProperty: boolean;
 	propertySecond?: string;
 	propertySecondSymbol?: string;
-	propertySecondOperation?: string;
+	propertiesOperation?: string;
 	ranges: RangeJSON[];
 };
 type RangeJSON = {
@@ -94,4 +95,7 @@ export type Value = {
 	symbol: string;
 	property: string;
 	isCorrect?: boolean;
+	isOrderable?: boolean;
+	inputOrdered?: string;
+	inputMeasured?: string;
 };

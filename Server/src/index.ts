@@ -18,6 +18,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get("/migrate", async (req, res) => {
+	await migrate(db, { migrationsFolder: "./drizzle" });
+	res.send("Migration complete");
+});
+
 app.get("/reset-elements", async (req, res) => {
 	await db.delete(elements);
 
@@ -44,7 +49,7 @@ app.get("/reset-elements", async (req, res) => {
 					propertysymbol: prop.propertySymbol,
 					propertysecond: prop.propertySecond || null,
 					propertysecondsymbol: prop.propertySecondSymbol || null,
-					propertiesoperation: prop.propertySecondOperation || null,
+					propertiesoperation: prop.propertiesOperation || null,
 					propertyunit: prop.propertyUnit,
 					rangefrom:
 						rg.rangeFrom?.toLowerCase() === "null" || rg.rangeFrom === ""
@@ -70,6 +75,7 @@ app.get("/reset-elements", async (req, res) => {
 					illustration: null,
 					tolerancestartagreement: rg.toleranceStartAgreement || null,
 					toleranceendagreement: rg.toleranceEndAgreement || null,
+					ispropertyorderable: prop.isPropertyOrderable,
 				});
 			}
 		}
@@ -115,7 +121,8 @@ app.get("/elements", async (req, res) => {
 			propertyUnit: elem.propertyunit,
 			propertySecond: elem.propertysecond || null,
 			propertySecondSymbol: elem.propertysecondsymbol || null,
-			propertySecondOperation: elem.propertiesoperation || null,
+			propertiesOperation: elem.propertiesoperation || null,
+			isPropertyOrderable: elem.ispropertyorderable,
 			ranges: [range],
 		};
 
@@ -145,6 +152,7 @@ app.get("/elements", async (req, res) => {
 			name: elem.rangeproperty,
 			symbol: elem.rangepropertysymbol,
 			unit: elem.rangeunit,
+			isOrderable: true,
 		});
 		// elementsPretty[elementsPretty.length - 1].allNeededValues.push({
 		// 	name: elem.toleranceproperty || "",
@@ -155,6 +163,7 @@ app.get("/elements", async (req, res) => {
 			name: elem.property,
 			symbol: elem.propertysymbol,
 			unit: elem.propertyunit,
+			isOrderable: elem.ispropertyorderable,
 		});
 
 		if (elem.propertysecond) {
@@ -162,6 +171,7 @@ app.get("/elements", async (req, res) => {
 				name: elem.propertysecond || "",
 				symbol: elem.propertysecondsymbol || "",
 				unit: elem.propertyunit,
+				isOrderable: elem.ispropertyorderable,
 			});
 		}
 	}

@@ -1,0 +1,163 @@
+{
+  "id": "31057ec7-e4f2-4d31-9109-7805a2bd33c3",
+  "prevId": "fbfe763a-2ddb-4ec1-afae-caec252255c8",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "elements": {
+      "name": "elements",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "code": {
+          "name": "code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "property": {
+          "name": "property",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "propertysymbol": {
+          "name": "propertysymbol",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "propertysecond": {
+          "name": "propertysecond",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "propertysecondsymbol": {
+          "name": "propertysecondsymbol",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "propertiesoperation": {
+          "name": "propertiesoperation",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "propertyunit": {
+          "name": "propertyunit",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rangefrom": {
+          "name": "rangefrom",
+          "type": "numeric(19, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rangeto": {
+          "name": "rangeto",
+          "type": "numeric(19, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rangeunit": {
+          "name": "rangeunit",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rangeproperty": {
+          "name": "rangeproperty",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rangepropertysymbol": {
+          "name": "rangepropertysymbol",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tolerancestart": {
+          "name": "tolerancestart",
+          "type": "numeric(19, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "toleranceend": {
+          "name": "toleranceend",
+          "type": "numeric(19, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "toleranceunit": {
+          "name": "toleranceunit",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "toleranceproperty": {
+          "name": "toleranceproperty",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tolerancepropertysymbol": {
+          "name": "tolerancepropertysymbol",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "illustration": {
+          "name": "illustration",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tolerancestartagreement": {
+          "name": "tolerancestartagreement",
+          "type": "numeric(19, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "toleranceendagreement": {
+          "name": "toleranceendagreement",
+          "type": "numeric(19, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ispropertyorderable": {
+          "name": "ispropertyorderable",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

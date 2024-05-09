@@ -7,6 +7,8 @@
 			"propertySymbol": "h",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": true,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -67,6 +69,8 @@
 			"propertySymbol": "b",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": true,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -127,6 +131,8 @@
 			"propertySymbol": "s",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": true,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -174,6 +180,8 @@
 			"propertySymbol": "t",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": true,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -221,6 +229,8 @@
 			"propertySymbol": "r3",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": true,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -245,6 +255,8 @@
 			"propertySecond": "skośność stopek",
 			"propertySecondSymbol": "k1",
 			"propertiesOperation": "ADDITION",
+			"isPropertyOrderable": false,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -279,6 +291,8 @@
 			"propertySymbol": "f",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": false,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -339,6 +353,8 @@
 			"propertySymbol": "qxx",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": false,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -386,6 +402,8 @@
 			"propertySymbol": "qyy",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": false,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -433,6 +451,8 @@
 			"propertySymbol": "l",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": true,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -456,6 +476,8 @@
 			"propertySymbol": "kg/m",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": true,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",

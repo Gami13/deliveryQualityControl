@@ -10,6 +10,7 @@
 			"propertySecond": "prostość",
 			"propertySecondSymbol": "qxx",
 			"propertiesOperation": "",
+			"isPropertyOrderable": false,
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -59,6 +60,8 @@
 			"propertySymbol": "h",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": true,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -103,6 +106,8 @@
 			"propertySymbol": "b",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": true,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -159,6 +164,8 @@
 			"propertySymbol": "t",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": true,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -215,6 +222,8 @@
 			"propertySymbol": "s",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": true,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -261,7 +270,9 @@
 			"isSecondProperty": true,
 			"propertySecond": "skośność stopek",
 			"propertySecondSymbol": "k`",
-			"propertiesOperation": "",
+			"propertiesOperation": "ADDITION",
+			"isPropertyOrderable": false,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -295,6 +306,8 @@
 			"propertySymbol": "e",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": false,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -327,6 +340,8 @@
 			"propertySymbol": "m",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": true,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",
@@ -338,7 +353,8 @@
 					"rangeFrom": "0",
 					"rangeTo": "NULL",
 					"toleranceStart": "4",
-					"toleranceEnd": "4"
+					"toleranceEnd": "4",
+					"toleranceUnit": "%"
 				}
 			]
 		},
@@ -347,6 +363,8 @@
 			"propertySymbol": "L",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
+			"isPropertyOrderable": true,
+
 			"ranges": [
 				{
 					"rangeUnit": "mm",

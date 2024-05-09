@@ -6,6 +6,7 @@ import type { ElementPretty, Value } from '../Types';
 import Utils from '../Utils';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { SubmitButton } from './ElementButton';
+import { Validate } from '../Validation';
 type Props = {
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   route: RouteProp<any, any>;
@@ -32,6 +33,10 @@ const Validation = ({ navigation, route }: Props) => {
     React.Dispatch<React.SetStateAction<ElementPretty[] | undefined>>
   ] = useContext(AppState);
   const [values, setValues] = useState<Value[]>([]);
+  const [invalidValues, setInvalidValues] = useState<Value[]>([]);
+  const [invalidValuesSymbols, setInvalidValuesSymbols] = useState<string[]>(
+    []
+  );
   const element = elements?.find((element) => element.code === code);
   console.log(elements, code);
   console.log(values);
@@ -54,8 +59,18 @@ const Validation = ({ navigation, route }: Props) => {
       alert('Nie wszystkie pola są wypełnione');
       return;
     }
-
-    alert('jest git');
+    if (!element) return;
+    const result = Validate(element, values);
+    if (typeof result === 'boolean' && result) {
+      alert('Jest git');
+      return;
+    }
+    alert('Nie jest git');
+    console.log(result);
+    if (!result) return;
+    setInvalidValues(result);
+    setInvalidValuesSymbols(result.map((value) => value.symbol));
+    //TODO: Change colors of invalid inputs
   }
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -75,33 +90,45 @@ const Validation = ({ navigation, route }: Props) => {
               </Text>
             </View>
             <View style={styles.inputRow}>
-              <TextInput
-                style={styles.input}
-                placeholder="Zamówiona"
-                value={values[index]?.ordered?.toString() || ''}
-                onChangeText={(text) => {
-                  const newValues = [...values];
-                  newValues[index] = {
-                    ordered: Number(text.replace(/[^0-9]/g, '')),
-                    measured: values[index]?.measured,
-                    symbol: (item as ItemType).symbol,
-                    property: (item as ItemType).name,
-                  };
+              {item.isOrderable && (
+                <TextInput
+                  style={[styles.input]}
+                  placeholder="Zamówiona"
+                  value={values[index]?.inputOrdered?.toString() || ''}
+                  onChangeText={(text) => {
+                    const newValues = [...values];
+                    newValues[index] = {
+                      ordered: Number(text.replace(/[^0-9.]/g, '')),
+                      inputOrdered: text.replace(/[^0-9.]/g, ''),
+                      inputMeasured: values[index]?.inputMeasured,
+                      measured: values[index]?.measured,
+                      symbol: (item as ItemType).symbol,
+                      property: (item as ItemType).name,
+                    };
 
-                  setValues(newValues);
-                }}
-                placeholderTextColor="#6f7c8f"
-              />
+                    setValues(newValues);
+                  }}
+                  placeholderTextColor="#6f7c8f"
+                />
+              )}
+
               <TextInput
                 placeholderTextColor="#6f7c8f"
-                style={styles.input}
+                style={[
+                  styles.input,
+                  invalidValuesSymbols.includes(item.symbol) && {
+                    backgroundColor: 'rgba(255, 0, 0, 0.5)',
+                  },
+                ]}
                 placeholder="Zmierzona"
-                value={values[index]?.measured?.toString() || ''}
+                value={values[index]?.inputMeasured?.toString() || ''}
                 onChangeText={(text) => {
                   const newValues = [...values];
                   newValues[index] = {
                     ordered: values[index]?.ordered,
-                    measured: Number(text.replace(/[^0-9]/g, '')),
+                    inputMeasured: text.replace(/[^0-9.]/g, ''),
+                    inputOrdered: values[index]?.inputOrdered,
+                    measured: Number(text.replace(/[^0-9.]/g, '')),
                     symbol: (item as ItemType).symbol,
                     property: (item as ItemType).name,
                   };

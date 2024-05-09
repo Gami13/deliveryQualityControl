@@ -15,6 +15,13 @@
       "when": 1715069367721,
       "tag": "0001_bouncy_justice",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1715246130680,
+      "tag": "0002_fresh_darkhawk",
+      "breakpoints": true
     }
   ]
 }
