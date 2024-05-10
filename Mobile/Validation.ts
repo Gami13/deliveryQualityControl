@@ -35,7 +35,6 @@ function createMeasurables(
 		let correspondingRange:
 			| ElementPretty["properties"]["0"]["ranges"][0]
 			| undefined = undefined;
-
 		for (let i = 0; i < property.ranges.length; i++) {
 			if (
 				property.ranges[i].rangeFrom === 0 ||
@@ -48,16 +47,22 @@ function createMeasurables(
 			)
 				property.ranges[i].rangeTo = Number.POSITIVE_INFINITY;
 		}
+		if (property.propertySymbol === "q") {
+			console.log(property.ranges);
+		}
 
-		const rangeProperty = property.ranges[0].rangePropertySymbol;
+		const rangeProperty = property.ranges[0].rangeProperty;
+		console.log("rangeProperty", rangeProperty);
 
 		const propertyValue = values.find(
-			(value) => value.symbol === property.propertySymbol,
+			(value) => value.property === property.property,
 		);
+		console.log("propertyValue", propertyValue);
 
 		const rangeValue = values.find(
-			(rangeValue) => rangeValue.symbol === rangeProperty,
+			(rangeValue) => rangeValue.property === rangeProperty,
 		);
+		console.log("rangeValue", rangeValue);
 		if (!rangeValue) {
 			console.log(`No range value found for ${property.propertySymbol}`);
 			throw new Error("No range value found for ${property.propertySymbol}");
@@ -71,6 +76,7 @@ function createMeasurables(
 					range.rangeTo >= rangeValue.ordered,
 			);
 		}
+		console.log(correspondingRange);
 		if (!correspondingRange) {
 			if (property.ranges.length === 1) {
 				correspondingRange = property.ranges[0];
@@ -78,21 +84,19 @@ function createMeasurables(
 		}
 
 		let propertyValueSecond: Value | undefined;
-		if (property.propertySecondSymbol) {
+		if (property.propertySecond) {
 			propertyValueSecond = values.find(
-				(value) => value.symbol === property.propertySecondSymbol,
+				(value) => value.property === property.propertySecond,
 			);
 		}
 		const tolerancePropertyMeasured = values.find(
-			(value) => value.symbol === correspondingRange?.tolerancePropertySymbol,
+			(value) => value.property === correspondingRange?.toleranceProperty,
 		);
 		console.log(
 			property.propertySymbol,
-			property.propertySecondSymbol,
-			propertyValue?.ordered,
-			propertyValueSecond?.ordered,
+			`${propertyValue?.ordered}/${propertyValue?.measured}`,
 			rangeValue?.symbol,
-			rangeValue?.ordered,
+			`${rangeValue?.ordered}/${rangeValue?.measured}`,
 			`${correspondingRange ? correspondingRange.rangeFrom : 0}-${
 				correspondingRange
 					? correspondingRange.rangeTo
@@ -153,9 +157,7 @@ function createRanges(measurable: Measurable) {
 			(measurable.toleranceEnd * measurable.tolerancePropertyOrdered) / 100;
 	} else {
 		rangeFrom = measurable.propertyOrdered - measurable.toleranceStart;
-		console.log(
-			`${rangeFrom}=${measurable.propertyOrdered}-${measurable.toleranceStart}`,
-		);
+
 		rangeTo = measurable.propertyOrdered + measurable.toleranceEnd;
 	}
 	return [rangeFrom, rangeTo];
@@ -173,6 +175,8 @@ export function Validate(
 	}
 	const invalidValues: Value[] = [];
 	for (const measurable of measurables) {
+		console.log("measurable", measurable.property);
+		console.log(measurable);
 		if (
 			measurable.propertySecond &&
 			measurable.propertySecondOrdered &&

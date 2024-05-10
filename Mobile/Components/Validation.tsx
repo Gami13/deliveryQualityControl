@@ -70,7 +70,6 @@ const Validation = ({ navigation, route }: Props) => {
     if (!result) return;
     setInvalidValues(result);
     setInvalidValuesSymbols(result.map((value) => value.symbol));
-    //TODO: Change colors of invalid inputs
   }
   return (
     <ScrollView contentContainerStyle={styles.container}>

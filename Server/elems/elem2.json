@@ -162,7 +162,7 @@
 			"propertySymbol": "u",
 			"propertyUnit": "mm",
 			"isSecondProperty": false,
-			"isPropertyOrderable": true,
+			"isPropertyOrderable": false,
 
 			"ranges": [
 				{
