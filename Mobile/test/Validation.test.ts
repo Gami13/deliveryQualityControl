@@ -352,4 +352,5 @@ describe("Validation testing", () => {
 		const result: boolean | Value[] = Validate(element, values);
 		expect(result).toBe(true);
 	});
+	
 });
